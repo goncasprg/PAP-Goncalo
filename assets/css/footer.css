@@ -1,12 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500&display=swap');
 
-:root {
-    --footer-background: white;
-    --text-color: #111420;
-    --text-gray: #e1e1e1;
-    --text-heading-gray: #b9b9b9;
-}
+
 
 html {
     font-size: 16px;
@@ -86,7 +81,7 @@ footer {
 
 .footer-subscribe > button {
     cursor: pointer;
-    background: var(--text-color);
+    background: var(--color1);
     border-radius: 0.5rem;
     color: white;
     font-size: 1.25rem;

@@ -1,9 +1,12 @@
 @import url(header.css);
 @import url(footer.css);
+
+@import url(homepage.css);
 :root {
     --color1: #037bfc;
+    --color2: #fff;
 
-    --footer-background: white;
+    --footer-background: #fff;
     --text-color: #111420;
     --text-gray: #e1e1e1;
     --text-heading-gray: #b9b9b9;
@@ -13,4 +16,7 @@
     --gray: #847F90;
     --white: #FCFCFC;
     --navbar-height: 3.75rem;
+}
+body {
+    position: relative;
 }

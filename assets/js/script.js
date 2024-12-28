@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFooter();
 });
 // Função para carregar o cabeçalho dinamicamente
-/*function loadHeader() {
+function loadHeader() {
     fetch('assets/includes/html/header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header').innerHTML = data;
         })
         .catch(error => console.error('Erro ao carregar o cabeçalho:', error));
-}*/
+}
 
 // Função para carregar o rodapé dinamicamente
 function loadFooter() {

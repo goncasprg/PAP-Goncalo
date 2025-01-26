@@ -1,9 +1,8 @@
-/* Container principal dos cards */
 #cards-container {
     display: flex;
-    flex-wrap: wrap; /* Cards se ajustam em linhas para telas menores */
-    gap: 20px; /* Espaçamento entre os cards */
-    justify-content: center; /* Centraliza os cards */
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content:space-between;
     padding: 20px;
 }
 

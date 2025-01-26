@@ -8,56 +8,62 @@
     <link rel="stylesheet" href="assets/css/banner.css">
     <link rel="stylesheet" href="assets/css/cards.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>CarChoice - Stand Automóvel</title>
 </head>
 <body>
     <header class="header" id="header">
-        <a href="" class="nav-logo"><img src="assets/images/carchoicedrk.png" alt=""></a>
+        <a href="" class="nav-logo"><img src="assets/images/carchoicedrk.png" alt="Logo CarChoice"></a>
         <nav class="nav-bar">
             <ul class="nav-list">
-                <li class="nav-item"><a href="" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Início</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Viaturas</a></li>
-                <li class="nav-item"><a href="assets/html/sobre_nos.html" class="nav-link">Sobre nós</a></li>
+                <li class="nav-item"><a href="assets/html/sobre_nos.html" class="nav-link">Sobre Nós</a></li>
             </ul>
         </nav>
         <a href="" class="nav-button">Contactar</a>
     </header>
     
-    <div class="banner">
-        <div class="banner-box">
-            <div class="banner-box-text">
-                <h3 class="banner-subtitle">Confira as nossas novidades diárias</h3>
-                <h1 class="banner-title">Encontre aqui o seu futuro carro</h1>
+    <main class="main">
+        <div class="banner">
+            <div class="banner-box">
+                <div class="banner-box-text">
+                    <h3 class="banner-subtitle">Confira as nossas novidades diárias</h3>
+                    <h1 class="banner-title">Encontre aqui o seu futuro carro</h1>
+                </div>
+
+                <form action="">
+                    <select name="" id="">
+                        <option value="">Marca</option>
+                        <option value="">Modelo</option>
+                        <option value="">Ano</option>
+                        <option value="">Preço</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">Marca</option>
+                        <option value="">Modelo</option>
+                        <option value="">Ano</option>
+                        <option value="">Preço</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">Marca</option>
+                        <option value="">Modelo</option>
+                        <option value="">Ano</option>
+                        <option value="">Preço</option>
+                    </select>
+                    <input type="submit" value="Pesquisar" class="banner-button">  
+                </form>
             </div>
-
-            <form action="">
-                <select name="" id="">
-                    <option value="">Marca</option>
-                    <option value="">Modelo</option>
-                    <option value="">Ano</option>
-                    <option value="">Preço</option>
-                </select>
-                <select name="" id="">
-                    <option value="">Marca</option>
-                    <option value="">Modelo</option>
-                    <option value="">Ano</option>
-                    <option value="">Preço</option>
-                </select>
-                <select name="" id="">
-                    <option value="">Marca</option>
-                    <option value="">Modelo</option>
-                    <option value="">Ano</option>
-                    <option value="">Preço</option>
-                </select>
-                <input type="submit" value="Pesquisar" class="banner-button">  
-            </form>
         </div>
-    </div>
+        
+        <section class="section-cards">
+            <h1 class="txt-destaque">Carros em Destaque</h1>
+            <!-- Cards serão carregados dinamicamente -->
+            <div id="cards-container"></div>
+        </section>
+    </main>
 
-    <!-- Cards serão carregados dinamicamente -->
-    <div id="cards-container"></div>
-
-    <!--Script do footer-->>
+    <!-- Script do footer e cards -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Carregar cards

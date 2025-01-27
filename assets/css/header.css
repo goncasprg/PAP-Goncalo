@@ -71,6 +71,10 @@
 
     animation: appear 1s forwards ease-in-out;
 }
+.nav-button:hover {
+    text-decoration: none;
+    transform: scale(1.01);
+}
 
 @keyframes appear {
     to {

@@ -25,7 +25,7 @@
                 <li class="nav-item"><a href="assets/html/sobre_nos.html" class="nav-link">Sobre Nós</a></li>
             </ul>
         </nav>
-        <a href="assets/html/contactar.html" class="nav-button">Contactar</a>
+        <a href="assets/html/contactar.php" class="nav-button">Contactar</a>
     </header>
     
     <main class="main">
@@ -71,20 +71,20 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Carregar cards
-            fetch("assets/html/cards.html")
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("cards-container").innerHTML = html;
-                })
-                .catch(err => console.error("Erro ao carregar os cards:", err));
+            fetch("assets/html/cards.php")
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById("cards-container").innerHTML = html;
+    })
+    .catch(err => console.error("Erro ao carregar os cards:", err));
 
-            // Carregar footer
-            fetch("assets/html/footer.html")
-                .then(response => response.text())
-                .then(html => {
-                    document.body.insertAdjacentHTML("beforeend", html);
-                })
-                .catch(err => console.error("Erro ao carregar o footer:", err));
+fetch("assets/html/footer.php")
+    .then(response => response.text())
+    .then(html => {
+        document.body.insertAdjacentHTML("beforeend", html);
+    })
+    .catch(err => console.error("Erro ao carregar o footer:", err));
+
         });
     </script>
 </body>

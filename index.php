@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/banner.css">
-    <link rel="stylesheet" href="assets/css/cards.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/contactar.css">
-    <link rel="icon" type="image/x-icon" href="assets/images/carchoicedrk.png">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/banner.css">
+    <link rel="stylesheet" href="./assets/css/cards.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/contactar.css">
+    <link rel="icon" type="image/x-icon" href="./assets/images/carchoicedrk.png">
     <title>CarChoice - Stand Automóvel</title>
 </head>
 <body>
     <header class="header" id="header">
-        <a href="" class="nav-logo"><img src="assets/images/carchoicedrk.png" alt="Logo CarChoice"></a>
+        <a href="" class="nav-logo"><img src="./assets/images/carchoicedrk.png" alt="Logo CarChoice"></a>
         <nav class="nav-bar">
             <ul class="nav-list">
                 <li class="nav-item"><a href="" class="nav-link">Início</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Viaturas</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Pesquisa</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Comparar</a></li>
-                <li class="nav-item"><a href="assets/html/sobre_nos.html" class="nav-link">Sobre Nós</a></li>
+                <li class="nav-item"><a href="./assets/html/sobre_nos.html" class="nav-link">Sobre Nós</a></li>
             </ul>
         </nav>
-        <a href="assets/html/contactar.php" class="nav-button">Contactar</a>
+        <a href="./assets/html/contactar.php" class="nav-button">Contactar</a>
     </header>
     
     <main class="main">
@@ -61,31 +61,14 @@
         </div>
         
         <section class="section-cards">
-            <h1 class="txt-destaque">Carros em Destaque</h1>
-            <!-- Cards serão carregados dinamicamente -->
-            <div id="cards-container"></div>
+            <h1 class="txt-destaque">Viaturas em Destaque</h1>
+            <div id="cards-container" class="cards-container">
+                <?php include("./assets/html/cards.php");  ?>
+            </div>
         </section>
     </main>
-
-    <!-- Script do footer e cards -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Carregar cards
-            fetch("assets/html/cards.php")
-    .then(response => response.text())
-    .then(html => {
-        document.getElementById("cards-container").innerHTML = html;
-    })
-    .catch(err => console.error("Erro ao carregar os cards:", err));
-
-fetch("assets/html/footer.php")
-    .then(response => response.text())
-    .then(html => {
-        document.body.insertAdjacentHTML("beforeend", html);
-    })
-    .catch(err => console.error("Erro ao carregar o footer:", err));
-
-        });
-    </script>
+    <?php 
+        include("./assets/html/footer.php"); 
+    ?>
 </body>
 </html>

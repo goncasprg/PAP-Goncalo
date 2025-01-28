@@ -10,12 +10,17 @@
 <body>
     <div class="container-contactar">
         <div class="contactar-box">
-            <div class="left"></div>
+        <div class="left">
+            <div class="contact-text">
+                <h2>Precisa de ajuda? Fale connosco!</h2>
+                <p>Tem alguma dúvida sobre os nossos veículos ou serviços? Estamos aqui para ajudar! Entre em contacto connosco e a nossa equipa responderá o mais rápido possível.</p>
+            </div>
+        </div>
             <div class="right">
                 <h2>Contactar</h2>
                 <input type="text" class="field" placeholder="Nome">
                 <input type="text" class="field" placeholder="Email">
-                <input type="text" class="field" placeholder="Número de Telemóvel">
+                <input type="text" class="field" placeholder="Assunto">
                 <textarea class="field" placeholder="Mensagem"></textarea>
                 <button class="btn">Enviar</button>
             </div>

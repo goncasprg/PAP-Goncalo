@@ -28,13 +28,14 @@
                         <p><strong>Mais para si</strong></p>
                         <li><a href="#">Início</a></li>
                         <li><a href="#">Viaturas</a></li>
-                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="./assets/html/sobre_nos.php">Sobre nós</a></li>
                         <li><a href="#">Comparar</a></li>
                         <li><a href="#">Garantia</a></li>
+                        <li><a href="./assets/html/Contactar.php">Contactar</a></li>
                     </ul>
                 </div>
             </div>
-            <p class="copyright">CarChoice © 2025</p>
+            <p class="copyright">CarChoice &copy; 2025</p>
         </footer>
     </div>
 </body>

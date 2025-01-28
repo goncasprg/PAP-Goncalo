@@ -5,6 +5,7 @@
         <div class="card-info">
             <p class="text-title">Audi A3</p>
             <p class="text-body">Descrição do carro.</p>
+            <p class="price-text">Preço</p>
             <p class="text-price">10.600€</p>
         </div>
         <button class="card-button">Saber mais</button>
@@ -15,6 +16,7 @@
         <div class="card-info">
             <p class="text-title">BMW Série 3</p>
             <p class="text-body">Descrição do carro.</p>
+            <p class="price-text">Preço</p>
             <p class="text-price">15.800€</p>
         </div>
         <button class="card-button">Saber mais</button>
@@ -25,6 +27,7 @@
         <div class="card-info">
             <p class="text-title">Mercedes Classe C</p>
             <p class="text-body">Descrição do carro.</p>
+            <p class="price-text">Preço</p>
             <p class="text-price">20.300€</p>
         </div>
         <button class="card-button">Saber mais</button>
@@ -35,6 +38,7 @@
         <div class="card-info">
             <p class="text-title">Nissan Qashqai</p>
             <p class="text-body">Descrição do carro.</p>
+            <p class="price-text">Preço</p>
             <p class="text-price">38.500€</p>
         </div>
         <button class="card-button">Saber mais</button>

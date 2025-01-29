@@ -14,7 +14,6 @@
     <div class="footer-basic">
         <footer>
             <div class="footer-container">
-                <!-- Contact Section -->
                 <div class="contact-section">
                     <p><i class="fas fa-phone-alt"></i> <strong>Telemóvel</strong></p>
                     <p>+351 966 840 321 <br><span>(Chamada para a rede móvel nacional)</span></p>
@@ -22,7 +21,6 @@
                     <p>pirukacheiroso@gmail.com</p>
                 </div>
 
-                <!-- Links Section -->
                 <div class="links-section">
                     <ul>
                         <p><strong>Mais para si</strong></p>

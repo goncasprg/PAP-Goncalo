@@ -20,7 +20,6 @@
             <ul class="nav-list">
                 <li class="nav-item"><a href="" class="nav-link">Início</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Viaturas</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Pesquisa</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Comparar</a></li>
                 <li class="nav-item"><a href="./assets/html/sobre_nos.html" class="nav-link">Sobre Nós</a></li>
             </ul>

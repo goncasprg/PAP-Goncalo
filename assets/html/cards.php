@@ -1,45 +1,67 @@
+<!-- Card 1 -->
+<div class="card">
+    <div class="card-img" style="background-image: url('assets/images/carros/Audi_A3.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="card-info">
+        <p class="text-title">Audi A3</p>
+        <p class="text-body">Descrição do carro.</p>
+        <div class="car-details">
+            <p><strong>Ano:</strong> 2018</p>
+            <p><strong>KMs:</strong> 75.000 km</p>
+            <p><strong>Transmissão:</strong> Automático</p>
+        </div>
+        <p class="price-text">Preço</p>
+        <p class="text-price">10.600€</p>
+    </div>
+    <button class="card-button">Saber mais</button>
+</div>
 
-    <!-- Card 1 -->
-    <div class="card">
-        <div class="card-img" style="background-image: url('assets/images/carros/Audi_A3.jpg'); background-size: cover; background-position: center;"></div>
-        <div class="card-info">
-            <p class="text-title">Audi A3</p>
-            <p class="text-body">Descrição do carro.</p>
-            <p class="price-text">Preço</p>
-            <p class="text-price">10.600€</p>
+<!-- Card 2 -->
+<div class="card">
+    <div class="card-img" style="background-image: url('assets/images/carros/BMW_Serie3.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="card-info">
+        <p class="text-title">BMW Série 3</p>
+        <p class="text-body">Descrição do carro.</p>
+        <div class="car-details">
+            <p><strong>Ano:</strong> 2020</p>
+            <p><strong>KMs:</strong> 50.000 km</p>
+            <p><strong>Transmissão:</strong> Manual</p>
         </div>
-        <button class="card-button">Saber mais</button>
+        <p class="price-text">Preço</p>
+        <p class="text-price">15.800€</p>
     </div>
-    <!-- Card 2 -->
-    <div class="card">
-        <div class="card-img" style="background-image: url('assets/images/carros/BMW_Serie3.jpg'); background-size: cover; background-position: center;"></div>
-        <div class="card-info">
-            <p class="text-title">BMW Série 3</p>
-            <p class="text-body">Descrição do carro.</p>
-            <p class="price-text">Preço</p>
-            <p class="text-price">15.800€</p>
+    <button class="card-button">Saber mais</button>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+    <div class="card-img"></div>
+    <div class="card-info">
+        <p class="text-title">Mercedes Classe C</p>
+        <p class="text-body">Descrição do carro.</p>
+        <div class="car-details">
+            <p><strong>Ano:</strong> 2019</p>
+            <p><strong>KMs:</strong> 60.000 km</p>
+            <p><strong>Transmissão:</strong> Automático</p>
         </div>
-        <button class="card-button">Saber mais</button>
+        <p class="price-text">Preço</p>
+        <p class="text-price">20.300€</p>
     </div>
-    <!-- Card 3 -->
-    <div class="card">
-        <div class="card-img"></div>
-        <div class="card-info">
-            <p class="text-title">Mercedes Classe C</p>
-            <p class="text-body">Descrição do carro.</p>
-            <p class="price-text">Preço</p>
-            <p class="text-price">20.300€</p>
+    <button class="card-button">Saber mais</button>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+    <div class="card-img"></div>
+    <div class="card-info">
+        <p class="text-title">Nissan Qashqai</p>
+        <p class="text-body">Descrição do carro.</p>
+        <div class="car-details">
+            <p><strong>Ano:</strong> 2022</p>
+            <p><strong>KMs:</strong> 15.000 km</p>
+            <p><strong>Transmissão:</strong> Automático</p>
         </div>
-        <button class="card-button">Saber mais</button>
+        <p class="price-text">Preço</p>
+        <p class="text-price">38.500€</p>
     </div>
-    <!-- Card 4 -->
-    <div class="card">
-        <div class="card-img"></div>
-        <div class="card-info">
-            <p class="text-title">Nissan Qashqai</p>
-            <p class="text-body">Descrição do carro.</p>
-            <p class="price-text">Preço</p>
-            <p class="text-price">38.500€</p>
-        </div>
-        <button class="card-button">Saber mais</button>
-    </div>
+    <button class="card-button">Saber mais</button>
+</div>

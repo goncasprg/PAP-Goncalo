@@ -23,14 +23,14 @@ O CarChoice é um stand automóvel virtual para compra e aluguer de veículos, c
 ✔️ Painel de administração para gestão de anúncios
 
 
-📁 PAP-Goncalo
-│-- 📂 assets      # Imagens e ficheiros estáticos
-│-- 📂 css         # Folhas de estilo
-│-- 📂 js          # Scripts JavaScript
-│-- 📂 php         # Ficheiros backend
-│-- 📂 sql         # Base de dados MySQL
-│-- index.php      # Página inicial
-│-- README.md      # Documentação do projeto
+📁 **PAP-Goncalo**
+- 📂 **assets** – Imagens e ficheiros estáticos  
+- 📂 **css** – Folhas de estilo  
+- 📂 **js** – Scripts JavaScript  
+- 📂 **php** – Ficheiros backend  
+- 📂 **sql** – Base de dados MySQL  
+- 📄 **index.php** – Página inicial  
+- 📄 **README.md** – Documentação do projeto  
 
 
 ## 🎯 Objetivo da PAP

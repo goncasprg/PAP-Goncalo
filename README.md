@@ -1,21 +1,21 @@
-🚗 CarChoice - PAP 2024/2025
+# 🚗 CarChoice - PAP 2024/2025 
 
 Este repositório contém o projeto desenvolvido para a minha Prova de Aptidão Profissional (PAP) no curso de Gestão e Programação de Sistemas Informáticos na Escola Profissional de Braga.
 
 
-📌 Sobre o Projeto
+## 📌 Sobre o Projeto
 
 O CarChoice é um stand automóvel virtual para compra e aluguer de veículos, criado com o objetivo de proporcionar uma plataforma intuitiva e eficiente onde os utilizadores podem explorar automóveis disponíveis e contactar os vendedores.
 
 
-🚀 Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
 	•	Frontend: HTML, CSS, JavaScript
 	•	Backend: PHP, MySQL
 	•	Outras Ferramentas: XAMPP
 
 
-🎯 Funcionalidades
+## 🎯 Funcionalidades
 
 ✔️ Listagem de carros disponíveis para venda e aluguer
 ✔️ Pesquisa e filtros avançados (marca, modelo, preço, etc.)
@@ -23,7 +23,7 @@ O CarChoice é um stand automóvel virtual para compra e aluguer de veículos, c
 ✔️ Painel de administração para gestão de anúncios
 
 
-📂 Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 📁 PAP-Goncalo
 │-- 📂 assets      # Imagens e ficheiros estáticos
@@ -35,10 +35,10 @@ O CarChoice é um stand automóvel virtual para compra e aluguer de veículos, c
 │-- README.md      # Documentação do projeto
 
 
-🎯 Objetivo da PAP
+## 🎯 Objetivo da PAP
 
 Este projeto tem como principal objetivo demonstrar as competências adquiridas ao longo do curso, aplicando conhecimentos de desenvolvimento web, bases de dados e UX/UI para criar uma solução funcional e intuitiva.
 
-📞 Contacto
+## 📞 Contacto
 
 📧 Email: pirukacheiroso@gmail.com

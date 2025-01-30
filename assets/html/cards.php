@@ -3,13 +3,15 @@
     <div class="card">
         <div class="card-img" style="background-image: url('assets/images/carros/Audi_A3.jpg');"></div>
         <div class="card-info">
-        <div class="car-details">
+            <p class="text-title">Audi A3</p>
+            <p class="text-body">1.6 TDI Sport</p>
+
+            <div class="car-details">
                 <span><i class="fas fa-calendar-alt"></i> 2018</span>
                 <span><i class="fas fa-road"></i> 120.000 km</span>
                 <span><i class="fas fa-cogs"></i> Manual</span>
             </div>
-            <p class="text-title">Audi A3</p>
-            <p class="text-body">1.6 TDI Sport</p>
+            
             <p class="price-text">Preço</p>
             <p class="text-price">10.600€</p>
         </div>

@@ -15,22 +15,12 @@ O CarChoice é um stand automóvel virtual para compra e aluguer de veículos, c
 	•	Outras Ferramentas: XAMPP
 
 
-## 🎯 Funcionalidades
+## 🎯 Funcionalidades  
 
-✔️ Listagem de carros disponíveis para venda e aluguer
-✔️ Pesquisa e filtros avançados (marca, modelo, preço, etc.)
-✔️ Página de detalhes do veículo
-✔️ Painel de administração para gestão de anúncios
-
-
-📁 **PAP-Goncalo**
-- 📂 **assets** – Imagens e ficheiros estáticos  
-- 📂 **css** – Folhas de estilo  
-- 📂 **js** – Scripts JavaScript  
-- 📂 **php** – Ficheiros backend  
-- 📂 **sql** – Base de dados MySQL  
-- 📄 **index.php** – Página inicial  
-- 📄 **README.md** – Documentação do projeto  
+- ✔️ **Listagem de carros** disponíveis para venda e aluguer  
+- ✔️ **Pesquisa e filtros avançados** (marca, modelo, preço, etc.)  
+- ✔️ **Página de detalhes do veículo** com informações completas  
+- ✔️ **Painel de administração** para gestão de anúncios  
 
 
 ## 🎯 Objetivo da PAP

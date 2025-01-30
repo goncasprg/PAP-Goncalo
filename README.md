@@ -23,8 +23,6 @@ O CarChoice é um stand automóvel virtual para compra e aluguer de veículos, c
 ✔️ Painel de administração para gestão de anúncios
 
 
-## 📂 Estrutura do Projeto
-
 📁 PAP-Goncalo
 │-- 📂 assets      # Imagens e ficheiros estáticos
 │-- 📂 css         # Folhas de estilo

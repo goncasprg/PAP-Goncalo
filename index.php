@@ -13,6 +13,8 @@
     <link rel="icon" type="image/x-icon" href="./assets/images/carchoicedrk.png">
     <title>CarChoice - Stand Automóvel</title>
 </head>
+<script src="assets/js/load_cars.js"></script>
+
 <body>
     <header class="header" id="header">
         <a href="" class="nav-logo"><img src="./assets/images/carchoicedrk.png" alt="Logo CarChoice"></a>

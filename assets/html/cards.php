@@ -11,7 +11,7 @@
                 <span><i class="fas fa-road"></i> 120.000 km</span>
                 <span><i class="fas fa-cogs"></i> Manual</span>
             </div>
-            
+
             <p class="price-text">Preço</p>
             <p class="text-price">10.600€</p>
         </div>
@@ -75,7 +75,7 @@
         <button class="card-button">Saber mais</button>
     </div>
     <div class="card">
-        <div class="card-img" style="background-image: url('assets/images/carros/Nissan_Qashqai.jpg');"></div>
+        <div class="card-img" style="background-image: url('assets/images/carros/VW_Golf.jpg');"></div>
         <div class="card-info">
             <p class="text-title">Nissan Qashqai</p>
             <p class="text-body">1.5 dCi Tekna</p>

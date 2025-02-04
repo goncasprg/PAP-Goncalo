@@ -30,7 +30,6 @@
 .nav-logo {
     height: 100%;
     transform: translateX(-200%);
-
     animation: appear 1s forwards ease-in-out;
 }
 
@@ -44,7 +43,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-
     list-style: none;
 }
 
@@ -52,12 +50,31 @@
     padding: 10px 20px;
     color: #fff;
     text-decoration: none;
-
 }
 
 .nav-link:hover {
     color: rgb(219, 219, 219);
-    text-decoration:underline;
+    text-decoration: underline;
+}
+
+/* Botão de Login */
+.login-button {
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.login-button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
 }
 
 .nav-button {
@@ -68,9 +85,9 @@
     padding: 15px 30px;
 
     transform: translateX(250%);
-
     animation: appear 1s forwards ease-in-out;
 }
+
 .nav-button:hover {
     text-decoration: none;
     transform: scale(1.01);

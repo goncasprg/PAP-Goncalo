@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/contactar.css">
     <link rel="icon" type="image/x-icon" href="./assets/images/carchoicedrk.png">
+    <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
     <title>CarChoice - Stand Automóvel</title>
 </head>
 <script src="assets/js/load_cars.js"></script>
@@ -27,6 +28,9 @@
             </ul>
         </nav>
         <a href="./assets/html/contactar.php" class="nav-button">Contactar</a>
+        <a href="./assets/html/login.php" class="login-button" title="Login">
+            <i class="fa-solid fa-user"></i>
+        </a>
     </header>
     
     <main class="main">
@@ -37,27 +41,35 @@
                     <h1 class="banner-title">Encontre aqui o seu futuro carro</h1>
                 </div>
 
-                <form action="">
-                    <select name="" id="">
+                <form action="veiculos.php" method="GET">
+                    <select name="brand">
                         <option value="">Marca</option>
-                        <option value="">Modelo</option>
-                        <option value="">Ano</option>
-                        <option value="">Preço</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Volkswagen">Volkswagen</option>
                     </select>
-                    <select name="" id="">
-                        <option value="">Marca</option>
+
+                    <select name="model">
                         <option value="">Modelo</option>
-                        <option value="">Ano</option>
-                        <option value="">Preço</option>
+                        <option value="A3">A3</option>
+                        <option value="Serie 3">Serie 3</option>
+                        <option value="Classe C">Classe C</option>
+                        <option value="Qashqai">Qashqai</option>
+                        <option value="Golf">Golf</option>
                     </select>
-                    <select name="" id="">
-                        <option value="">Marca</option>
-                        <option value="">Modelo</option>
-                        <option value="">Ano</option>
-                        <option value="">Preço</option>
+
+                    <select name="transmission">
+                        <option value="">Transmissão</option>
+                        <option value="Automática">Automática</option>
+                        <option value="Manual">Manual</option>
+                        <option value="Semi-Automática">Semi-Automática</option>
                     </select>
+
                     <input type="submit" value="Pesquisar" class="banner-button">  
                 </form>
+
             </div>
         </div>
         

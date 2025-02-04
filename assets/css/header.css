@@ -73,8 +73,9 @@
 }
 
 .login-button:hover {
+    color: #fff;
     background: rgba(255, 255, 255, 0.5);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .nav-button {

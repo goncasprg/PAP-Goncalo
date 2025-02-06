@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../assets/php/db.php'; // Caminho ajustado para o arquivo de conexão com o banco de dados
+include './db.php'; // Caminho ajustado para o arquivo de conexão com o banco de dados
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -41,20 +41,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-        <label for="senha">Password</label>
-        <input type="password" name="senha" id="senha">
-        <input type="submit" value="Entrar">
-    </form>
-</body>
-</html>

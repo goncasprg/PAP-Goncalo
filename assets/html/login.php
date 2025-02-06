@@ -1,64 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Example</title>
+    <title>Login & Registo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/login.css">
+    <script defer src="../js/login.js"></script>
+    <script defer src="../login.js"></script>
 </head>
 
 <body>
-    <form class="my-form">
-        <div class="login-welcome-row">
-            <a href="#" title="Logo">
-                <img src="../images/carchoicewht.png" alt="Logo" class="logo">
-            </a>
-            <h1>Bem-vindo de volta!</h1>
-            <p>Por favor, preencha os campos</p>
-        </div>
-        <div class="input__wrapper">
-            <input type="email" id="email" name="email" class="input__field" placeholder="" required autocomplete="off">
-            <label for="email" class="input__label">Email</label>
-            <svg class="input__icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
-                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-                <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0v-1.5a9 9 0 1 0 -5.5 8.28"></path>
-            </svg>
-        </div>
-        <div class="input__wrapper">
-            <input id="password" type="password" class="input__field" placeholder=""
-                title="Minimum 6 characters at least 1 Alphabet and 1 Number"
-                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$" required autocomplete="off">
-            <label for="password" class="input__label">
-                Palavra-passe
-            </label>
-            <svg class="input__icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
-                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
-                <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
-                <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
-            </svg>
-        </div>
-        <button type="submit" class="my-form__button">
-            Entrar
-        </button>
-        <div class="my-form__actions">
-            <div class="my-form__row">
-                <span>Não tens uma conta?</span>
-                <a href="#" title="Create Account">
-                    Registar
+    <div class="container">
+        <form id="login-form" class="my-form active" action="../php/login.php" method="POST">
+            <div class="login-welcome-row">
+                <a href="#" title="Logo">
+                    <img src="../images/carchoicewht.png" alt="Logo" class="logo">
                 </a>
+                <h1>Bem-vindo de volta!</h1>
+                <p>Por favor, preencha os campos</p>
             </div>
-        </div>
-    </form>
+            <div class="input__wrapper">
+                <input type="email" id="email" name="email" class="input__field" required autocomplete="off">
+                <label for="email" class="input__label">Email</label>
+            </div>
+            <div class="input__wrapper">
+                <input id="password" type="password" class="input__field" required autocomplete="off">
+                <label for="password" class="input__label">Palavra-passe</label>
+            </div>
+            <button type="submit" class="my-form__button">Entrar</button>
+            <div class="my-form__actions">
+                <span>Não tens uma conta?</span>
+                <a href="#" id="show-register">Registar</a>
+            </div>
+        </form>
 
-    <script src="script.js"></script>
+        <form id="register-form" class="my-form" action="../php/register.php" method="POST">
+            <div class="login-welcome-row">
+                <a href="#" title="Logo">
+                    <img src="../images/carchoicewht.png" alt="Logo" class="logo">
+                </a>
+                <h1>Cria a tua conta</h1>
+                <p>Preencha os campos abaixo para se registar</p>
+            </div>
+            <div class="input__wrapper">
+                <input type="text" id="name" name="name" class="input__field" required autocomplete="off">
+                <label for="name" class="input__label">Nome</label>
+            </div>
+            <div class="input__wrapper">
+                <input type="email" id="register-email" name="email" class="input__field" required autocomplete="off">
+                <label for="register-email" class="input__label">Email</label>
+            </div>
+            <div class="input__wrapper">
+                <input id="register-password" type="password" class="input__field" required autocomplete="off">
+                <label for="register-password" class="input__label">Palavra-passe</label>
+            </div>
+            <div class="input__wrapper">
+                <input id="confirm-password" type="password" class="input__field" required autocomplete="off">
+                <label for="confirm-password" class="input__label">Confirmar palavra-passe</label>
+            </div>
+            <button type="submit" class="my-form__button">Registar</button>
+            <div class="my-form__actions">
+                <span>Já tem uma conta?</span>
+                <a href="#" id="show-login">Entrar</a>
+            </div>
+        </form>
+    </div>
 </body>
-
 </html>

@@ -55,19 +55,24 @@
                 <label for="register-email" class="input__label">Email</label>
             </div>
             <div class="input__wrapper">
-                <input id="register-password" type="password" class="input__field" required autocomplete="off">
+                <input id="register-password" type="password" name="password" class="input__field" required autocomplete="off">
                 <label for="register-password" class="input__label">Palavra-passe</label>
             </div>
             <div class="input__wrapper">
-                <input id="confirm-password" type="password" class="input__field" required autocomplete="off">
+                <input id="confirm-password" type="password" name="confirm_password" class="input__field" required autocomplete="off">
                 <label for="confirm-password" class="input__label">Confirmar palavra-passe</label>
+            </div>
+            <div class="input__wrapper">
+                <input type="text" id="phone" name="phone" class="input__field" required autocomplete="off">
+                <label for="phone" class="input__label">Telefone</label>
             </div>
             <button type="submit" class="my-form__button">Registar</button>
             <div class="my-form__actions">
                 <span>Já tem uma conta?</span>
                 <a href="#" id="show-login">Entrar</a>
             </div>
-        </form>
+</form>
+
     </div>
 </body>
 </html>

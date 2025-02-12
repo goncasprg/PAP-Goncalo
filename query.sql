@@ -66,9 +66,9 @@ CREATE TABLE car_categories (
 
 INSERT INTO cars (brand, model, registration_year, mileage, seats, fuel_type, power, engine_capacity, transmission, color, warranty, price, description)
 VALUES
-('Audi', 'A3 1.6 TDI Sport', 2018, 120000, 5, 'Diesel', 110, 1.6, 'Manual', 'Preto', 12, 10600.00, 'Carro desportivo compacto, excelente para cidade e estrada.'),
-('BMW', 'Série 3 2.0d M Sport', 2020, 90000, 5, 'Diesel', 190, 2.0, 'Automática', 'Azul', 24, 15800.00, 'Sedan premium com alto desempenho e conforto.'),
-('Mercedes', 'Classe C 2.2 CDI Elegance', 2017, 110000, 5, 'Diesel', 170, 2.2, 'Automática', 'Cinza', 18, 20300.00, 'Luxuoso e confortável, ideal para viagens longas.'),
+('Audi', 'A3 1.6 TDI Sport', 2018, 120000, 5, 'Diesel', 110, 1.6, 'Manual', 'Preto', 12, 28600.00, 'Carro desportivo compacto, excelente para cidade e estrada.'),
+('BMW', 'Série 3 2.0d M Sport', 2020, 90000, 5, 'Diesel', 190, 2.0, 'Automática', 'Azul', 24, 45800.00, 'Sedan premium com alto desempenho e conforto.'),
+('Mercedes', 'Classe C 2.2 CDI Elegance', 2017, 110000, 5, 'Diesel', 170, 2.2, 'Automática', 'Cinza', 18, 36300.00, 'Luxuoso e confortável, ideal para viagens longas.'),
 ('Nissan', 'Qashqai 1.5 dCi Tekna', 2021, 30000, 5, 'Diesel', 115, 1.5, 'Manual', 'Branco', 36, 38500.00, 'SUV moderno com tecnologia avançada e baixo consumo.'),
 ('Volkswagen', 'Golf 1.4 TSI Highline', 2019, 80000, 5, 'Gasolina', 150, 1.4, 'Automática', 'Vermelho', 24, 18900.00, 'Compacto esportivo com excelente desempenho e economia.');
 
@@ -80,3 +80,4 @@ VALUES
 (4, 'assets/images/carros/Nissan_Qashqai.jpg'),
 (5, 'assets/images/carros/VW_Golf.jpg');
 
+ALTER TABLE users MODIFY last_name VARCHAR(50) DEFAULT NULL;

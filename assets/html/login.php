@@ -15,28 +15,29 @@
 
 <body>
     <div class="container">
-        <form id="login-form" class="my-form active" action="../php/login.php" method="POST">
+        <form id="login-form" class="my-form" action="../php/login.php" method="POST">
             <div class="login-welcome-row">
                 <a href="#" title="Logo">
                     <img src="../images/carchoicewht.png" alt="Logo" class="logo">
                 </a>
-                <h1>Bem-vindo de volta!</h1>
-                <p>Por favor, preencha os campos</p>
+                <h1>Iniciar Sessão</h1>
+                <p>Insira os seus dados para entrar</p>
             </div>
             <div class="input__wrapper">
-                <input type="email" id="email" name="email" class="input__field" required autocomplete="off">
-                <label for="email" class="input__label">Email</label>
+                <input type="email" id="login-email" name="email" class="input__field" required autocomplete="off">
+                <label for="login-email" class="input__label">Email</label>
             </div>
             <div class="input__wrapper">
-                <input id="password" type="password" class="input__field" required autocomplete="off">
-                <label for="password" class="input__label">Palavra-passe</label>
+                <input id="login-password" type="password" name="password" class="input__field" required autocomplete="off">
+                <label for="login-password" class="input__label">Palavra-passe</label>
             </div>
             <button type="submit" class="my-form__button">Entrar</button>
             <div class="my-form__actions">
-                <span>Não tens uma conta?</span>
+                <span>Não tem uma conta?</span>
                 <a href="#" id="show-register">Registar</a>
             </div>
-        </form>
+    </form>
+
 
         <form id="register-form" class="my-form" action="../php/register.php" method="POST">
             <div class="login-welcome-row">

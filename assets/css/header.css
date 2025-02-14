@@ -11,20 +11,20 @@
     height: 90px;
 
     padding: 10px 10%;
-
     background: #00000022;
-
     border-bottom: 1px solid #ffffff31;
-
     transition: all 0.3s;
+
+    z-index: 1000;
 }
 
 #header.sticky {
     background: #000000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .header:hover {
-    background: #000000a9;
+    background: #000000aa;
 }
 
 .nav-logo {

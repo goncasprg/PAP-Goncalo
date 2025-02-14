@@ -1,26 +1,36 @@
 <?php
-require '../php/db.php';
 session_start();
+require_once 'db.php'; // Conectar à base de dados
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $pdo = getPDO();
+    $email = $_POST["email"] ?? null;
+    $password = $_POST["password"] ?? null;
 
-    $email = trim($_POST["email"]);
-    $password = trim($_POST["password"]);
+    if (!$email || !$password) {
+        die("Erro: Preencha todos os campos.");
+    }
 
-    // Busca o utilizador na BD
-    $stmt = $pdo->prepare("SELECT id, first_name, password, role FROM users WHERE email = ?");
-    $stmt->execute([$email]);
-    $user = $stmt->fetch();
+    try {
+        $pdo = getPDO();
+        $stmt = $pdo->prepare("SELECT id, first_name, email, password, role FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
 
-    if ($user && password_verify($password, $user["password"])) {
-        $_SESSION["user_id"] = $user["id"];
-        $_SESSION["user_name"] = $user["first_name"];
-        $_SESSION["user_role"] = $user["role"];
+        if ($user && password_verify($password, $user["password"])) {
+            // Login bem-sucedido, criar sessão
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["user_name"] = $user["first_name"];
+            $_SESSION["user_email"] = $user["email"];
+            $_SESSION["user_role"] = $user["role"];
 
-        echo "Login bem-sucedido!";
-    } else {
-        echo "Email ou senha incorretos!";
+            // Redirecionar para a página inicial
+            header("Location: ../../index.php");
+            exit();
+        } else {
+            echo "Erro: Email ou palavra-passe incorretos.";
+        }
+    } catch (PDOException $e) {
+        die("Erro ao fazer login: " . $e->getMessage());
     }
 }
 ?>

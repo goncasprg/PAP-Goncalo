@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    loadHeader();
     loadFooter();
+    window.onscroll = function () {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    };
 });
 // Função para carregar o cabeçalho dinamicamente
 /*function loadHeader() {

@@ -1,27 +1,29 @@
 .banner {
     height: 100vh;
     width: 100%;
-
     display: flex;
     align-items: center;
-    padding: 0px 5%;
-    background: url('../images/banner.png');
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    padding: 0 5%;
+    background: url('../images/banner.png') no-repeat center/cover;
+    background-size: cover;
+    position: relative;
 }
 
 .banner-box {
     display: flex;
     flex-direction: column;
     gap: 30px;
-
     color: #fff;
-
+    text-align: center; /* Centraliza o texto */
 }
 
 .banner-title {
     font-size: 4rem;
-    width: 70%;
+    width: 100%; /* Ajusta para centralizar melhor */
     font-weight: 700;
 }
+
 .banner-subtitle {
     font-size: 1.5rem;
     font-weight: 400;
@@ -29,12 +31,14 @@
 
 .banner form {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Para garantir que em telas menores os elementos fiquem alinhados */
+    justify-content: center; /* Centraliza os itens dentro do form */
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     background: #fff;
     gap: 10px;
-
+    max-width: 800px; /* Define uma largura máxima para evitar que fique muito grande */
+    width: 100%;
 }
 
 .banner form select {
@@ -44,13 +48,13 @@
     font-size: 1em;
     border: none;
     border-radius: 10px;
-
     transition: all 0.3s;
-
 }
+
 .banner form select:hover {
     border: 1px solid #00000034;
 }
+
 .banner-button {
     padding: 15px 20px;
     color: #fff;
@@ -60,4 +64,4 @@
     cursor: pointer;
     font-size: 1em;
     font-weight: 500;
-} 
+}

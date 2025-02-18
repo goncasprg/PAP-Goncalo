@@ -10,19 +10,19 @@
 <body>
     <div class="container-contactar">
         <div class="contactar-box">
-        <div class="left">
-            <div class="contact-text">
-                <h2>Precisa de ajuda? Fale connosco!</h2>
-                <p>Tem alguma dúvida sobre os nossos veículos ou serviços? Estamos aqui para ajudar! Entre em contacto connosco e a nossa equipa responderá o mais rápido possível.</p>
+            <div class="left">
+                <div class="contact-text">
+                    <h2>Precisa de ajuda? Fale connosco!</h2>
+                    <p>Tem alguma dúvida sobre os nossos veículos ou serviços? Estamos aqui para ajudar! Entre em contacto connosco e a nossa equipa responderá o mais rápido possível.</p>
+                </div>
             </div>
-        </div>
             <div class="right">
                 <h2>Contactar</h2>
-                <input type="text" class="field" placeholder="Nome">
-                <input type="text" class="field" placeholder="Email">
-                <input type="text" class="field" placeholder="Assunto">
-                <textarea class="field" placeholder="Mensagem"></textarea>
-                <button class="btn">Enviar</button>
+                <form action="https://formspree.io/f/meoepkze" method="POST">
+                    <input type="email" name="email" class="field" placeholder="Email" required>
+                    <textarea name="message" class="field" placeholder="Mensagem" required></textarea>
+                    <button type="submit" class="btn">Enviar</button>
+                </form>
             </div>
         </div>
     </div>

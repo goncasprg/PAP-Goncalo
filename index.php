@@ -48,42 +48,44 @@ session_start();
     </header>
     
     <main class="main">
-        <div class="banner">
-            <div class="banner-box">
-                <div class="banner-box-text">
-                    <h3 class="banner-subtitle"></h3>
-                    <h1 class="banner-title">Encontre aqui o seu futuro carro</h1>
-                </div>
-                <form action="veiculos.php" method="GET">
-                    <select name="brand">
-                        <option value="">Marca</option>
-                        <option value="Audi">Audi</option>
-                        <option value="BMW">BMW</option>
-                        <option value="Mercedes">Mercedes</option>
-                        <option value="Nissan">Nissan</option>
-                        <option value="Volkswagen">Volkswagen</option>
-                    </select>
+    <div class="banner">
+    <div class="banner-box">
+        <h3 class="banner-subtitle"></h3>
+        <h1 class="banner-title">Encontre aqui o seu futuro carro</h1>
+    </div>
 
-                    <select name="model">
-                        <option value="">Modelo</option>
-                        <option value="A3">A3</option>
-                        <option value="Serie 3">Serie 3</option>
-                        <option value="Classe C">Classe C</option>
-                        <option value="Qashqai">Qashqai</option>
-                        <option value="Golf">Golf</option>
-                    </select>
+    <div class="banner-form-container">
+        <form action="veiculos.php" method="GET">
+            <select name="brand">
+                <option value="">Marca</option>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Volkswagen">Volkswagen</option>
+            </select>
 
-                    <select name="transmission">
-                        <option value="">Transmissão</option>
-                        <option value="Automática">Automática</option>
-                        <option value="Manual">Manual</option>
-                        <option value="Semi-Automática">Semi-Automática</option>
-                    </select>
+            <select name="model">
+                <option value="">Modelo</option>
+                <option value="A3">A3</option>
+                <option value="Serie 3">Serie 3</option>
+                <option value="Classe C">Classe C</option>
+                <option value="Qashqai">Qashqai</option>
+                <option value="Golf">Golf</option>
+            </select>
 
-                    <input type="submit" value="Pesquisar" class="banner-button">  
-                </form>
-            </div>
-        </div>
+            <select name="transmission">
+                <option value="">Transmissão</option>
+                <option value="Automática">Automática</option>
+                <option value="Manual">Manual</option>
+                <option value="Semi-Automática">Semi-Automática</option>
+            </select>
+
+            <input type="submit" value="Pesquisar" class="banner-button">
+        </form>
+    </div>
+</div>
+
         
         <section class="section-cards">
             <h1 class="txt-destaque">Viaturas em Destaque</h1>

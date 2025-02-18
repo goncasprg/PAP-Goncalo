@@ -3,10 +3,9 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center;
     padding: 0 5%;
-    background: url('../images/banner.png') no-repeat center/cover;
-    background-size: cover;
+    background: url('../images/banner.png') no-repeat top /cover;
     position: relative;
 }
 
@@ -15,12 +14,17 @@
     flex-direction: column;
     gap: 30px;
     color: #fff;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
+    position: absolute;
+    top: 20%; /* Mantém o título mais para cima */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1000px;
 }
 
 .banner-title {
     font-size: 4rem;
-    width: 100%; /* Ajusta para centralizar melhor */
     font-weight: 700;
 }
 
@@ -29,15 +33,23 @@
     font-weight: 400;
 }
 
+.banner-form-container {
+    position: absolute;
+    top: 45%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 790px;
+}
+
 .banner form {
     display: flex;
-    flex-wrap: wrap; /* Para garantir que em telas menores os elementos fiquem alinhados */
-    justify-content: center; /* Centraliza os itens dentro do form */
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 20px;
     border-radius: 20px;
     background: #fff;
     gap: 10px;
-    max-width: 800px; /* Define uma largura máxima para evitar que fique muito grande */
     width: 100%;
 }
 
@@ -58,7 +70,7 @@
 .banner-button {
     padding: 15px 20px;
     color: #fff;
-    background: #131313;
+    background: #151515;
     border: none;
     border-radius: 10px;
     cursor: pointer;

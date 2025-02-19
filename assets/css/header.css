@@ -1,20 +1,17 @@
+/* Estilos do Header */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 90px;
-
     padding: 10px 10%;
     background: #00000022;
     border-bottom: 1px solid #ffffff31;
     transition: all 0.3s;
-
     z-index: 1000;
 }
 
@@ -27,6 +24,7 @@
     background: #000000aa;
 }
 
+/* Logo */
 .nav-logo {
     height: 100%;
     transform: translateX(-200%);
@@ -37,6 +35,7 @@
     height: 100%;
 }
 
+/* Estilização da navegação */
 .nav-list {
     font-size: 1.2em;
     display: flex;
@@ -47,53 +46,81 @@
 }
 
 .nav-link {
+    position: relative;
     padding: 10px 20px;
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Efeito de linha ao passar o rato nas tabs do header */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.2s ease-in-out;
 }
 
 .nav-link:hover {
     color: rgb(219, 219, 219);
-    text-decoration: underline;
 }
 
-/* Botão de Login */
+.nav-link:hover::after {
+    width: 100%;
+}
+
 .login-button {
-    font-size: 1.5em;
+    height: 50px;
+    width: 140px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #fff;
+    overflow: hidden;
+    border-radius: 10px;
     color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: all 0.3s ease;
+    font-size: 1em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
+    text-decoration: none;
+}
+
+.login-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1;
+    transition: all 0.4s ease-in-out;
+    background-color: #fff;
+    border-radius: 10px;
+    visibility: hidden;
+    height: 10px;
+    width: 2.1px;
+    z-index: -1;
 }
 
 .login-button:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.5);
-    transform: scale(1.05);
-}
-
-.nav-button {
-    color: #000000;
-    background: #fff;
-    border-radius: 20px;
     text-decoration: none;
-    padding: 15px 30px;
-
-    transform: translateX(250%);
-    animation: appear 1s forwards ease-in-out;
+    box-shadow: 1px 1px 20px #ffffff;
+    color: #333;
+    border: none;
 }
 
-.nav-button:hover {
-    text-decoration: none;
-    transform: scale(1.01);
+.login-button:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(1px);
 }
 
+/* Animação de aparição */
 @keyframes appear {
     to {
         transform: translateX(0);

@@ -29,10 +29,10 @@ session_start();
                 <li class="nav-item"><a href="./assets/html/veiculos.php" class="nav-link">Viaturas</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Comparar</a></li>
                 <li class="nav-item"><a href="./assets/html/sobre_nos.html" class="nav-link">Sobre Nós</a></li>
+                <li class="nav-item"><a href="./assets/html/contactar.php" class="nav-link">Contactar</a></li>
             </ul>
         </nav>
-        <a href="./assets/html/contactar.php" class="nav-button">Contactar</a>
-        
+
         <?php if (isset($_SESSION["user_id"])): ?>
             <div class="user-menu">
                 <span>Bem-vindo, <?php echo htmlspecialchars($_SESSION["user_name"]); ?>!</span>
@@ -41,11 +41,10 @@ session_start();
                 </a>
             </div>
         <?php else: ?>
-            <a href="./assets/html/login.php" class="login-button" title="Login">
-                <i class="fa-solid fa-user"></i>
-            </a>
+            <a href="./assets/html/login.php" class="login-button" title="Login">Entrar</a>
         <?php endif; ?>
     </header>
+
     
     <main class="main">
     <div class="banner">

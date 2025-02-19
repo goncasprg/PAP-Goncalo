@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/contactar.css">
     <link rel="stylesheet" href="../css/main.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("contact-form");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+
+                fetch("https://formspree.io/f/meoepkze", {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        alert("Mensagem enviada com sucesso!");
+                        window.location.href = "../../index.php";
+                    } else {
+                        alert("Erro ao enviar a mensagem. Tente novamente.");
+                    }
+                }).catch(error => {
+                    alert("Erro ao conectar com o servidor. Tente novamente.");
+                });
+            });
+        });
+    </script>
     <title>Contactar - CarChoice</title>
 </head>
 <body>
@@ -18,8 +46,10 @@
             </div>
             <div class="right">
                 <h2>Contactar</h2>
-                <form action="https://formspree.io/f/meoepkze" method="POST">
+                <form id="contact-form">
+                    <input type="text" name="name" class="field" placeholder="Nome" required>
                     <input type="email" name="email" class="field" placeholder="Email" required>
+                    <input type="text" name="assunto" class="field" placeholder="Assunto" required>
                     <textarea name="message" class="field" placeholder="Mensagem" required></textarea>
                     <button type="submit" class="btn">Enviar</button>
                 </form>

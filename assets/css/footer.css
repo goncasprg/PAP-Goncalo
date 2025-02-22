@@ -1,47 +1,60 @@
 .footer-basic {
   padding: 40px 0;
-  background-color: #f2f2f2; /* Fundo cinzento claro */
-  color: #4b4c4d; /* Texto cinzento escuro */
+  background-color: #333; /* Fundo cinzento escuro */
+  color: #fff; /* Texto branco */
   font-family: Arial, sans-serif;
-  border-top: 3px solid #ddd; /* Borda superior suave */
+  border-top: 3px solid #444; /* Borda superior mais escura */
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: row; /* Alinhar itens em linha */
+  justify-content: space-between; /* Espaçar itens igualmente */
+  align-items: center;
   padding: 20px 5%;
   gap: 50px; /* Espaço entre os blocos */
 }
 
-.contact-section {
-  flex: 1;
-  font-size: 16px;
+.logo-section {
+  display: flex;
+  align-items: center;
 }
 
-.contact-section p {
+.logo {
+  height: 50px; /* Ajuste conforme necessário */
+  margin-right: 15px;
+}
+
+.slogan {
+  font-size: 18px;
+  color: #bbb;
+}
+
+.contact-section, .links-section {
+  text-align: left; /* Alinhar texto à esquerda */
+}
+
+.contact-section p, .links-section p {
   margin: 5px 0;
   line-height: 1.6;
 }
 
-.contact-section strong {
+.contact-section strong, .links-section strong {
   font-size: 18px;
 }
 
-.contact-section i {
+.contact-section i, .links-section i {
   margin-right: 8px;
-  color: #4b4c4d; /* Cor dos ícones */
+  color: #fff; /* Cor dos ícones */
 }
 
-.contact-section span {
+.contact-section span, .links-section span {
   font-size: 12px;
-  color: #888;
+  color: #bbb;
 }
 
 .links-section {
-  flex: 1;
-  text-align: left;
-  font-size: 16px;
+  margin-top: 20px; /* Espaço acima das navbars */
 }
 
 .links-section p {
@@ -60,18 +73,25 @@
 }
 
 .links-section a {
-  color: #4b4c4d;
+  color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .links-section a:hover {
-  color: #000;
+  color: #ddd;
 }
 
 .footer-basic p {
   text-align: center;
   margin: 10px 0 0;
   font-size: 13px;
-  color: #aaa;
+  color: #bbb;
+}
+
+.footer-basic .copyright {
+  text-align: center;
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #bbb;
 }

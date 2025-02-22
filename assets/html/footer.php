@@ -11,30 +11,27 @@
 </head>
 
 <body>
-    <div class="footer-basic">
-        <footer>
-            <div class="footer-container">
-                <div class="contact-section">
-                    <p><i class="fas fa-phone-alt"></i> <strong>Telemóvel</strong></p>
-                    <p>+351 966 840 321 <br><span>(Chamada para a rede móvel nacional)</span></p>
-                    <p><i class="fas fa-envelope"></i> <strong>Email</strong></p>
-                    <p>pirukacheiroso@gmail.com</p>
-                </div>
-
-                <div class="links-section">
-                    <ul>
-                        <p><strong>Mais para si</strong></p>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Viaturas</a></li>
-                        <li><a href="./assets/html/sobre_nos.php">Sobre nós</a></li>
-                        <li><a href="#">Comparar</a></li>
-                        <li><a href="#">Garantia</a></li>
-                        <li><a href="./assets/html/Contactar.php">Contactar</a></li>
-                    </ul>
-                </div>
+<div class="footer-basic">
+    <div class="footer-container">
+        <div class="logo-section">
+            <img src="assets/images/carchoicedrk.png" alt="Logo do Stand" class="logo">
+            <p class="slogan">O seu carro, o que sempre desejou.</p>
             </div>
-            <p class="copyright">CarChoice &copy; 2025</p>
-        </footer>
+            <div class="contact-section">
+                <p><strong>Contactos</strong></p>
+                <p><i class="fas fa-phone"></i> +351 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> email@exemplo.com</p>
+            </div>
+            <div class="links-section">
+                <p>Mais para si</p>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">© 2025 Seu Stand. Todos os direitos reservados.</p>
     </div>
 </body>
 

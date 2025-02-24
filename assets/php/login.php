@@ -17,14 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user["password"])) {
-            // Login bem-sucedido, criar sessão
+            // Criar sessão
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["user_name"] = $user["first_name"];
             $_SESSION["user_email"] = $user["email"];
             $_SESSION["user_role"] = $user["role"];
 
-            // Redirecionar para a página inicial
-            header("Location: ../../index.php");
+            // ✅ Se for admin, redireciona para o dashboard
+            if ($user["role"] === "admin") {
+                header("Location: ../../admin/dashboard.php");
+            } else {
+                header("Location: ../../index.php");
+            }
             exit();
         } else {
             echo "Erro: Email ou palavra-passe incorretos.";

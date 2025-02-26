@@ -1,3 +1,10 @@
+<div class="brand-container">
+    <a href="assets/html/veiculos.php"><img src="assets/images/marcas/audi.png" alt="Audi"></a>
+    <a href="assets/html/veiculos.php"><img src="assets/images/marcas/bmw.png" alt="BMW"></a>
+    <a href="assets/html/veiculos.php"><img src="assets/images/marcas/mercedes.png" alt="Mercedes"></a>
+</div>
+
+
 <div class="cards-container">
     <!-- Card 1 -->
     <div class="card">

@@ -25,9 +25,11 @@
             <div class="links-section">
                 <p>Mais para si</p>
                 <ul>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
+                    <li><a href="../PAP-Goncalo/index.php">Inicio</a></li>
+                    <li><a href="#">Viaturas</a></li>
+                    <li><a href="#">Comparar</a></li>
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Contactar</a></li>
                 </ul>
             </div>
         </div>

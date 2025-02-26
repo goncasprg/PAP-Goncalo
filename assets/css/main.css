@@ -8,3 +8,44 @@
     display: flex;
     flex-direction: column;
 }
+
+.brand-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.brand-container a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brand-container img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+
+.brand-container a:hover img {
+    transform: scale(1.2);
+    filter: grayscale(0%);
+    opacity: 1;
+}

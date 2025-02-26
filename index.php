@@ -77,7 +77,7 @@ session_start();
                     <select name="model">
                         <option value="">Modelo</option>
                         <option value="A3">A3</option>
-                        <option value="Serie 3">Serie 3</option>
+                        <option value="Série 3">Série 3</option>
                         <option value="Classe C">Classe C</option>
                         <option value="Qashqai">Qashqai</option>
                         <option value="Golf">Golf</option>
@@ -85,9 +85,8 @@ session_start();
 
                     <select name="transmission">
                         <option value="">Transmissão</option>
-                        <option value="Asutomática">Automática</option>
+                        <option value="Automática">Automática</option>
                         <option value="Manual">Manual</option>
-                        <option value="Semi-Automática">Semi-Automática</option>
                     </select>
 
                     <input type="submit" value="Pesquisar" class="banner-button" />
@@ -100,6 +99,8 @@ session_start();
                 <a href="assets/html/veiculos.php"><img src="assets/images/marcas/audi.png" alt="Audi"></a>
                 <a href="assets/html/veiculos.php"><img src="assets/images/marcas/bmw.png" alt="BMW"></a>
                 <a href="assets/html/veiculos.php"><img src="assets/images/marcas/mercedes.png" alt="Mercedes"></a>
+                <a href="assets/html/veiculos.php"><img src="assets/images/marcas/volkswagen.png" alt="Mercedes"></a>
+                <a href="assets/html/veiculos.php"><img src="assets/images/marcas/nissan.png" alt="BMW"></a>
             </div>
             <h1 class="txt-destaque">Viaturas em Destaque</h1>
             <div id="cards-container" class="cards-container">

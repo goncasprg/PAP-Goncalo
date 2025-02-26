@@ -11,11 +11,11 @@
 </head>
 
 <body>
-<div class="footer-basic">
-    <div class="footer-container">
-        <div class="logo-section">
-            <img src="assets/images/carchoicedrk.png" alt="Logo do Stand" class="logo">
-            <p class="slogan">O seu carro, o que sempre desejou.</p>
+    <div class="footer-basic">
+        <div class="footer-container">
+            <div class="logo-section">
+                <a href="./index.php"><img src="assets/images/carchoicedrk.png" alt="Logo do Stand" class="logo"></a>
+                <p class="slogan">O seu carro, o que sempre desejou.</p>
             </div>
             <div class="contact-section">
                 <p><strong>Contactos</strong></p>

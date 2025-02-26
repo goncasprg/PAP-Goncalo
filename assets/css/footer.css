@@ -10,45 +10,52 @@
   display: flex;
   flex-direction: row; /* Alinhar itens em linha */
   justify-content: space-between; /* Espaçar itens igualmente */
-  align-items: center;
+  align-items: flex-start; /* Alinhar itens ao topo */
   padding: 20px 5%;
   gap: 50px; /* Espaço entre os blocos */
 }
 
 .logo-section {
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Alinhar itens em coluna */
+  align-items: center; /* Centralizar itens */
 }
 
 .logo {
   height: 50px; /* Ajuste conforme necessário */
-  margin-right: 15px;
+  margin-bottom: 10px; /* Espaço abaixo da logo */
 }
 
 .slogan {
-  font-size: 18px;
+  font-size: x-large;
   color: #bbb;
+  text-align: center; /* Centralizar texto */
 }
 
-.contact-section, .links-section {
+.contact-section,
+.links-section {
   text-align: left; /* Alinhar texto à esquerda */
 }
 
-.contact-section p, .links-section p {
+.contact-section p,
+.links-section p {
   margin: 5px 0;
   line-height: 1.6;
 }
 
-.contact-section strong, .links-section strong {
+.contact-section strong,
+.links-section strong {
   font-size: 18px;
 }
 
-.contact-section i, .links-section i {
+.contact-section i,
+.links-section i {
   margin-right: 8px;
   color: #fff; /* Cor dos ícones */
 }
 
-.contact-section span, .links-section span {
+.contact-section span,
+.links-section span {
   font-size: 12px;
   color: #bbb;
 }
@@ -82,16 +89,24 @@
   color: #ddd;
 }
 
+.footer-basic .slogan {
+  font-weight: 900;
+  text-align: center;
+  margin: 10px 0 0;
+  font-size: 24px;
+  color: #bbb;
+}
+
 .footer-basic p {
   text-align: center;
   margin: 10px 0 0;
-  font-size: 13px;
+  font-size: 17px;
   color: #bbb;
 }
 
 .footer-basic .copyright {
   text-align: center;
   margin: 10px 0 0;
-  font-size: 13px;
+  font-size: 15px;
   color: #bbb;
 }

@@ -12,12 +12,14 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="admin.css"> <!-- CSS do painel -->
 </head>
+
 <body>
 
     <header>
@@ -43,22 +45,30 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </thead>
             <tbody>
                 <?php foreach ($cars as $car): ?>
-                    <tr>
-                        <td><?= $car['id'] ?></td>
-                        <td><img src="../<?= $car['image_url'] ?>" alt="Imagem do carro" width="100"></td>
-                        <td><?= $car['brand'] ?></td>
-                        <td><?= $car['model'] ?></td>
-                        <td><?= $car['registration_year'] ?></td>
-                        <td><?= number_format($car['price'], 2) ?> €</td>
-                        <td>
-                            <a href="edit_car.php?id=<?= $car['id'] ?>" class="btn">Editar</a>
-                            <a href="delete_car.php?id=<?= $car['id'] ?>" class="btn danger" onclick="return confirm('Tem a certeza que deseja remover este carro?')">Remover</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td><?= $car['id'] ?></td>
+                    <td><img src="../<?= $car['image_url'] ?>" alt="Imagem do carro" width="100"></td>
+                    <td><?= $car['brand'] ?></td>
+                    <td><?= $car['model'] ?></td>
+                    <td><?= $car['registration_year'] ?></td>
+                    <td><?= number_format($car['price'], 2) ?> €</td>
+                    <td>
+                        <form action="edit_car.php" method="get" style="display:inline;">
+                            <input type="hidden" name="id" value="<?= $car['id'] ?>">
+                            <button type="submit" class="edit-btn">Editar</button>
+                        </form>
+                        <form action="delete_car.php" method="get" style="display:inline;"
+                            onsubmit="return confirm('Tem certeza que deseja remover este carro?')">
+                            <input type="hidden" name="id" value="<?= $car['id'] ?>">
+                            <button type="submit" class="delete-btn">Remover</button>
+                        </form>
+                    </td>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </section>
 
 </body>
+
 </html>

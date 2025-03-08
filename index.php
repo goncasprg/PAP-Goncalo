@@ -17,7 +17,6 @@ session_start();
     <link rel="stylesheet" href="./assets/css/contactar.css" />
     <link rel="icon" type="image/x-icon" href="./assets/images/carchoicedrk.png" />
     <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
     <title>CarChoice - Stand Automóvel</title>
 </head>
 <script src="assets/js/load_cars.js"></script>

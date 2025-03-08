@@ -9,9 +9,9 @@ body {
 /* Container principal */
 .container {
     width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 1400px;
+    margin-left: 18rem;
+    padding: 2rem;
     background: white;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -59,7 +59,7 @@ table {
 
 th, td {
     padding: 12px;
-    text-align: center;
+    text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
@@ -74,6 +74,7 @@ tr:hover {
 
 /* Botões de ação */
 .action-btn {
+    display: inline-block; /* Garante que os botões fiquem lado a lado */
     padding: 8px 12px;
     margin: 5px;
     border: none;
@@ -81,11 +82,13 @@ tr:hover {
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
+    width: auto; /* Remove o width fixo */
+    min-width: 80px; /* Garante um tamanho mínimo */
 }
 
 .edit-btn {
+    width: 100px;
     background-color: #ffc107;
-    color: white;
 }
 
 .edit-btn:hover {
@@ -93,12 +96,17 @@ tr:hover {
 }
 
 .delete-btn {
+    width: 100px;
     background-color: #dc3545;
-    color: white;
 }
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+
+/* Ajusta a célula que contém os botões */
+td {
+    white-space: nowrap; /* Impede que os botões quebrem para a linha de baixo */
 }
 
 /* Formulários */
@@ -143,3 +151,91 @@ button:hover {
     color: white;
     border-radius: 0 0 12px 12px;
 }
+
+.car-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.car-link:hover {
+    text-decoration: underline;
+}
+
+.clickable-row {
+    text-align: left;
+}
+
+/*Add car*/
+.car-form {
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.car-form .form-input, .car-form .form-select, .car-form .form-textarea, .car-form .form-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+.car-form .form-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.car-form .form-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.car-form input[type="text"], .car-form input[type="number"], .car-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+.car-form .form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    height: 120px;
+}
+
+
+.car-form .form-select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+/*--*/

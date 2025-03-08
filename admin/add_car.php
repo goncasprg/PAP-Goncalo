@@ -42,36 +42,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Carro</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
 </head>
 
 <body>
-    <h1>Adicionar Novo Carro</h1>
-    <form action="add_car.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="brand" placeholder="Marca" required>
-        <input type="text" name="model" placeholder="Modelo" required>
-        <input type="number" name="year" placeholder="Ano" required>
-        <input type="number" step="0.01" name="price" placeholder="Preço" required>
-        <input type="number" name="mileage" placeholder="Quilometragem">
-        <input type="number" name="seats" placeholder="Número de Assentos" required>
-        <select name="fuel_type" required>
+    <h1 class="form-title">Adicionar Novo Carro</h1>
+    <form action="add_car.php" method="post" enctype="multipart/form-data" class="car-form">
+        <input type="text" name="brand" placeholder="Marca" required class="form-input">
+        <input type="text" name="model" placeholder="Modelo" required class="form-input">
+        <input type="number" name="year" placeholder="Ano" required class="form-input">
+        <input type="number" step="0.01" name="price" placeholder="Preço" required class="form-input">
+        <input type="number" name="mileage" placeholder="Quilometragem" class="form-input">
+        <input type="number" name="seats" placeholder="Número de Assentos" required class="form-input">
+        <select name="fuel_type" required class="form-select">
             <option value="Gasolina">Gasolina</option>
             <option value="Diesel">Diesel</option>
             <option value="Elétrico">Elétrico</option>
             <option value="Híbrido">Híbrido</option>
         </select>
-        <input type="number" name="power" placeholder="Potência" required>
-        <input type="number" step="0.01" name="engine_capacity" placeholder="Capacidade do Motor" required>
-        <select name="transmission" required>
+        <input type="number" name="power" placeholder="Potência" required class="form-input">
+        <input type="number" step="0.01" name="engine_capacity" placeholder="Capacidade do Motor" required class="form-input">
+        <select name="transmission" required class="form-select">
             <option value="Manual">Manual</option>
             <option value="Automática">Automática</option>
             <option value="Semi-Automática">Semi-Automática</option>
         </select>
-        <input type="text" name="color" placeholder="Cor" required>
-        <input type="number" name="warranty" placeholder="Garantia (meses)">
-        <textarea name="description" placeholder="Descrição"></textarea>
-        <input type="file" name="image" required>
-        <button type="submit">Adicionar</button>
+        <input type="text" name="color" placeholder="Cor" required class="form-input">
+        <input type="number" name="warranty" placeholder="Garantia (meses)" class="form-input">
+        <textarea name="description" placeholder="Descrição" class="form-textarea"></textarea>
+        <input type="file" name="image" required class="form-input">
+        <button type="submit" class="form-btn">Adicionar</button>
     </form>
 </body>
 

@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$name, $email, $hashed_password, $phone]);
 
         echo "Registro concluído com sucesso!";
+        header("Location: ../../index.php");
     } catch (PDOException $e) {
         die("Erro ao registrar: " . $e->getMessage());
     }

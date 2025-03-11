@@ -34,14 +34,14 @@
                   <li>
                     <a href="#project" title="Project" class="tooltip">
                       <img src="../admin/assets/images/analytics.svg" alt="Analytics">
-                      <span class="link hide">Analytics</span>
-                      <span class="tooltip__content">Analytics</span>
+                      <span class="link hide">Veículos</span>
+                      <span class="tooltip__content">Veículos</span>
                     </a>
                   </li>
                   <li>
                     <a href="#performance" title="Performance" class="tooltip">
                       <img src="../admin/assets/images/performance.svg" alt="Performance">
-                      <span class="link hide">Performance</span>
+                      <span class="link hide">Anúncios Pendentes</span>
                       <span class="tooltip__content">Performance</span>
                     </a>
                   </li>

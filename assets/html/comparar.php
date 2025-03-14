@@ -5,12 +5,14 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
-    <link rel="stylesheet" href="./assets/css/header.css"/>
+    <link rel="stylesheet" href="./assets/css/header.css" />
 
 </head>
+
 <body>
-<main class="main">
+    <main class="main">
         <div class="banner">
             <div class="banner-box">
                 <h1 class="banner-title">Está indeciso?</h1>
@@ -64,4 +66,5 @@ session_start();
         </section>
     </main>
 </body>
+
 </html>

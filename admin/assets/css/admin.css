@@ -1,4 +1,13 @@
-/* Estilos gerais */
+:root {
+    --azul: #007bff;
+    --text: #EDF0F7;
+    --red: #dc3545;
+    --sidebar-gray-light: #F8F7FD;
+    --sidebar-gray-background: #4a4a4a;
+    --success: #00C896;
+    --white: #fff;
+}q
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -19,7 +28,7 @@ body {
 
 /* Cabeçalho */
 .header {
-    background-color: #007bff;
+    background-color: var(--azul);
     color: white;
     padding: 15px;
     text-align: center;
@@ -32,7 +41,7 @@ body {
 .logout-btn {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #dc3545;
+    background-color: var(--red);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -40,7 +49,7 @@ body {
 }
 
 .logout-btn:hover {
-    background-color: #c82333;
+    background-color: #b10012;
 }
 
 /* Tabela de carros */
@@ -64,7 +73,7 @@ th, td {
 }
 
 th {
-    background-color: #007bff;
+    background-color: var(--azul);
     color: white;
 }
 
@@ -88,20 +97,20 @@ tr:hover {
 
 .edit-btn {
     width: 100px;
-    background-color: #ffc107;
+    background-color: var(--azul);
 }
 
 .edit-btn:hover {
-    background-color: #e0a800;
+    background-color: #005aba;
 }
 
 .delete-btn {
     width: 100px;
-    background-color: #dc3545;
+    background-color: var(--red);
 }
 
 .delete-btn:hover {
-    background-color: #c82333;
+    background-color: #b10012;
 }
 
 /* Ajusta a célula que contém os botões */
@@ -147,13 +156,13 @@ button:hover {
     text-align: center;
     margin-top: 20px;
     padding: 15px;
-    background-color: #007bff;
+    background-color: var(--azul);
     color: white;
     border-radius: 0 0 12px 12px;
 }
 
 .car-link {
-    color: #007bff;
+    color: var(--azul);
     text-decoration: none;
     font-weight: bold;
 }
@@ -188,7 +197,7 @@ button:hover {
 
 
 .car-form .form-btn {
-    background-color: #007bff;
+    background-color: var(--azul);
     color: white;
     border: none;
     cursor: pointer;

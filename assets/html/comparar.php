@@ -1,70 +1,53 @@
 <?php
-include "../php/db.php";
-session_start();
+include '../php/db.php'; // Conexão com a base de dados
+
+// Obter a conexão PDO
+$pdo = getPDO();
+
+// Buscar todos os carros disponíveis para seleção
+$sql = "SELECT id, brand, model FROM cars";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$allCars = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
 
 <head>
-    <link rel="stylesheet" href="./assets/css/header.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparação de Carros</title>
+    <link rel="stylesheet" href="../css/comparar.css">
 </head>
 
 <body>
-    <main class="main">
-        <div class="banner">
-            <div class="banner-box">
-                <h1 class="banner-title">Está indeciso?</h1>
-                <h2>Use a nossa ferramenta de comparação!</h2>
-            </div>
+    <h1>Comparação de Carros</h1>
 
-            <div class="banner-form-container">
-                <form action="veiculos.php" method="GET">
-                    <select name="brand" id="brand">
-                        <option value="">Selecione um carro</option>
-                        <?php
-                        $sql = "SELECT * FROM brands ORDER BY brand ASC";
-                        $stmt = getPDO()->prepare($sql);
-                        $stmt->execute();
+    <!-- Formulário para selecionar os carros -->
+    <form action="comparar_resultados.php" method="GET">
+        <label for="car1">Escolha o primeiro carro:</label>
+        <select name="car1" id="car1" required>
+            <option value="" disabled selected>Selecione um carro</option>
+            <?php foreach ($allCars as $car): ?>
+                <option value="<?php echo $car['id']; ?>">
+                    <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
 
-                        while ($row = $stmt->fetch()) {
-                            echo "<option value='" . htmlspecialchars($row['id']) . "'>" . htmlspecialchars($row['brand']) . "</option>";
-                        }
-                        ?>
-                    </select>
+        <label for="car2">Escolha o segundo carro:</label>
+        <select name="car2" id="car2" required>
+            <option value="" disabled selected>Selecione um carro</option>
+            <?php foreach ($allCars as $car): ?>
+                <option value="<?php echo $car['id']; ?>">
+                    <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
 
-                    <select name="model" id="model">
-                        <option value="">Selecione um carro</option>
-                        <?php
-                        $sql = "SELECT * FROM brands ORDER BY brand ASC";
-                        $stmt = getPDO()->prepare($sql);
-                        $stmt->execute();
-
-                        while ($row = $stmt->fetch()) {
-                            echo "<option value='" . htmlspecialchars($row['id']) . "'>" . htmlspecialchars($row['brand']) . "</option>";
-                        }
-                        ?>
-                    </select>
-
-                    <input type="submit" value="Pesquisar" class="banner-button" />
-                </form>
-            </div>
-        </div>
-
-        <section class="section-cards">
-            <div class="brand-container">
-                <a href="assets/html/veiculos.php"><img src="assets/images/marcas/audi.png" alt="Audi"></a>
-                <a href="assets/html/veiculos.php"><img src="assets/images/marcas/bmw.png" alt="BMW"></a>
-                <a href="assets/html/veiculos.php"><img src="assets/images/marcas/mercedes.png" alt="Mercedes"></a>
-                <a href="assets/html/veiculos.php"><img src="assets/images/marcas/volkswagen.png" alt="Volkswagen"></a>
-                <a href="assets/html/veiculos.php"><img src="assets/images/marcas/nissan.png" alt="Nissan"></a>
-            </div>
-            <div id="cards-container" class="cards-container">
-                <?php include("./assets/html/cards.php"); ?>
-            </div>
-        </section>
-    </main>
+        <button type="submit">Comparar</button>
+    </form>
 </body>
 
 </html>

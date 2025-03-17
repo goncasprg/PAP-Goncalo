@@ -96,7 +96,7 @@ session_start();
 
             <h1 class="txt-destaque">Viaturas em Destaque</h1>
             <div id="cards-container" class="cards-container">
-                <?php include("./assets/html/cards.php"); ?>
+               
             </div>
         </section>
     </main>

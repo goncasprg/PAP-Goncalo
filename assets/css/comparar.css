@@ -62,7 +62,7 @@ select {
 
 /* Botão de comparação */
 button {
-    background-color: #ff6b6b;
+    background-color: #333;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -74,7 +74,7 @@ button {
 }
 
 button:hover {
-    background-color: #e05252;
+    background-color: #414141;
 }
 
 /* Ícone de pesquisa dentro do select (opcional) */

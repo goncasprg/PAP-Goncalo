@@ -40,7 +40,8 @@ $cars = $stmt->fetchAll();
                 <p><strong>Assentos:</strong> <?php echo htmlspecialchars($car['seats']); ?></p>
                 <p><strong>Portas:</strong> <?php echo htmlspecialchars($car['doors']); ?></p>
                 <p><strong>Combustível:</strong> <?php echo htmlspecialchars($car['fuel_type']); ?></p>
-                <p><strong>Consumo de Combustível:</strong> <?php echo htmlspecialchars($car['fuel_consumption']); ?> L/100km</p>
+                <p><strong>Consumo de Combustível:</strong> <?php echo htmlspecialchars($car['fuel_consumption']); ?>
+                    L/100km</p>
                 <p><strong>Emissões de CO2:</strong> <?php echo htmlspecialchars($car['co2_emissions']); ?> g/km</p>
                 <p><strong>Potência:</strong> <?php echo htmlspecialchars($car['power']); ?> cv</p>
                 <p><strong>Velocidade Máxima:</strong> <?php echo htmlspecialchars($car['top_speed']); ?> km/h</p>

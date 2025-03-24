@@ -1,8 +1,8 @@
 <?php
-require_once '../assets/php/db.php'; // Ajusta o caminho conforme necessário
+include "db.php"; // Certifica-te que o caminho está correto
 
 try {
-    $stmt = $pdo->query("SELECT id, brand, model, engine_capacity, fuel_type, registration_year, mileage, transmission, price, 
+    $stmt = getPDO()->query("SELECT brand, model, engine_capacity, fuel_type, registration_year, mileage, transmission, price, 
         CONCAT('assets/images/carros/', image_url) AS image_url FROM cars");
     $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     

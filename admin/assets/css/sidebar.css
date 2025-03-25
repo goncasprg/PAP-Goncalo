@@ -1,10 +1,10 @@
 
 :root {
-  --primary-color: #575757;
+  --primary-color: #007bff;
   --text: #EDF0F7;
   --sidebar-gray: #111926;
   --sidebar-gray-light: #F8F7FD;
-  --sidebar-gray-background: #4a4a4a;
+  --sidebar-gray-background: #0059b8;
   --success: #00C896;
   --white: #fff;
 }
@@ -20,7 +20,7 @@ font-family: Poppins, sans-serif;
 }
 
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;

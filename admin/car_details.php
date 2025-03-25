@@ -27,7 +27,7 @@ if (!$car) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Carro</title>
-    <link rel="stylesheet" href="../admin/assets/css/admin.css"> <!-- CSS do painel -->
+    <link rel="stylesheet" href="../admin/assets/css/car_details.css"> <!-- Novo CSS separado -->
 </head>
 <?php include 'sidebar.php'; ?>
 

@@ -1,0 +1,74 @@
+:root {
+    --azul: #007bff;
+    --text: #EDF0F7;
+    --red: #dc3545;
+    --sidebar-gray-light: #F8F7FD;
+    --sidebar-gray-background: #4a4a4a;
+    --success: #00C896;
+    --white: #fff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--azul);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Container principal */
+.car-details {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.car-details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.car-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.car-details li {
+    padding: 8px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Botão */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: var(--azul);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}

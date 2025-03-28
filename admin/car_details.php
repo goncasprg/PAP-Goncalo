@@ -27,7 +27,7 @@ if (!$car) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Carro</title>
-    <link rel="stylesheet" href="../admin/assets/css/car_details.css"> <!-- Novo CSS separado -->
+    <link rel="stylesheet" href="../admin/assets/css/car_details.css">
 </head>
 <?php include 'sidebar.php'; ?>
 
@@ -35,24 +35,41 @@ if (!$car) {
 
     <header>
         <h1>Detalhes do Carro</h1>
-        <a href="dashboard.php">Voltar</a> <!-- Link para voltar ao dashboard -->
+        <a href="dashboard.php" class="btn-back">Voltar</a>
     </header>
 
     <section class="car-details">
-        <h2><?= $car['brand'] . ' ' . $car['model'] ?></h2>
-        <img src="../<?= $car['image_url'] ?>" alt="Imagem do carro" width="300">
+        <h2 class="car-title"><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h2>
+        <img src="../<?php echo htmlspecialchars($car['image_url']); ?>" alt="Imagem do carro" class="car-image">
         
-        <ul>
-            <li><strong>ID:</strong> <?= $car['id'] ?></li>
-            <li><strong>Marca:</strong> <?= $car['brand'] ?></li>
-            <li><strong>Modelo:</strong> <?= $car['model'] ?></li>
-            <li><strong>Ano de Registro:</strong> <?= $car['registration_year'] ?></li>
-            <li><strong>Quilometragem:</strong> <?= number_format($car['mileage'], 0, ',', '.') ?> km</li>
-            <li><strong>Tipo de Combustível:</strong> <?= $car['fuel_type'] ?></li>
-            <li><strong>Preço:</strong> <?= number_format($car['price'], 2) ?> €</li>
-        </ul>
+        <div class="car-info">
+            <p><strong>Ano:</strong> <?php echo htmlspecialchars($car['registration_year']); ?></p>
+            <p><strong>Quilometragem:</strong> <?php echo htmlspecialchars($car['mileage']); ?> km</p>
+            <p><strong>Assentos:</strong> <?php echo htmlspecialchars($car['seats']); ?></p>
+            <p><strong>Portas:</strong> <?php echo htmlspecialchars($car['doors']); ?></p>
+            <p><strong>Combustível:</strong> <?php echo htmlspecialchars($car['fuel_type']); ?></p>
+            <p><strong>Consumo:</strong> <?php echo htmlspecialchars($car['fuel_consumption']); ?> L/100km</p>
+            <p><strong>CO2:</strong> <?php echo htmlspecialchars($car['co2_emissions']); ?> g/km</p>
+            <p><strong>Potência:</strong> <?php echo htmlspecialchars($car['power']); ?> cv</p>
+            <p><strong>Velocidade Máx:</strong> <?php echo htmlspecialchars($car['top_speed']); ?> km/h</p>
+            <p><strong>Aceleração:</strong> <?php echo htmlspecialchars($car['acceleration']); ?> s</p>
+            <p><strong>Caixa:</strong> <?php echo htmlspecialchars($car['gearbox']); ?></p>
+            <p><strong>Motor:</strong> <?php echo htmlspecialchars($car['engine_capacity']); ?> cc</p>
+            <p><strong>Tanque:</strong> <?php echo htmlspecialchars($car['fuel_tank_capacity']); ?> L</p>
+            <p><strong>Transmissão:</strong> <?php echo htmlspecialchars($car['transmission']); ?></p>
+            <p><strong>Tração:</strong> <?php echo htmlspecialchars($car['traction']); ?></p>
+            <p><strong>Cor:</strong> <?php echo htmlspecialchars($car['color']); ?></p>
+            <p><strong>Dimensões:</strong> <?php echo htmlspecialchars($car['dimensions']); ?></p>
+            <p><strong>Porta-malas:</strong> <?php echo htmlspecialchars($car['trunk_capacity']); ?> L</p>
+            <p><strong>Garantia:</strong> <?php echo htmlspecialchars($car['warranty']); ?> meses</p>
+            <p><strong>Proprietários:</strong> <?php echo htmlspecialchars($car['previous_owners']); ?></p>
+            <p><strong>Serviço:</strong> <?php echo htmlspecialchars($car['service_history']); ?></p>
+            <p><strong>Condição:</strong> <?php echo htmlspecialchars($car['condition']); ?></p>
+            <p><strong>Preço:</strong> €<?php echo number_format($car['price'], 2, ',', '.'); ?></p>
+            <p><strong>Descrição:</strong> <?php echo nl2br(htmlspecialchars($car['description'])); ?></p>
+        </div>
 
-        <a href="edit_car.php?id=<?= $car['id'] ?>" class="btn">Editar Carro</a>
+        <a href="edit_car.php?id=<?php echo $car['id']; ?>" class="btn">Editar Carro</a>
     </section>
 
 </body>

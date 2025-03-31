@@ -12,7 +12,8 @@ try {
             c.registration_year, 
             c.mileage, 
             c.transmission, 
-            c.price
+            c.price, 
+            ci.image_url
         FROM 
             cars c
         LEFT JOIN 

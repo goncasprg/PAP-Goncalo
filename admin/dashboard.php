@@ -43,7 +43,6 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Imagem</th>
                         <th>Marca</th>
                         <th>Modelo</th>
@@ -55,7 +54,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tbody>
                     <?php foreach ($cars as $car): ?>
                     <tr class="clickable-row" data-href="car_details.php?id=<?= $car['id'] ?>">
-                        <td><?= $car['id'] ?></td>
+
                         <td><img src="../<?= htmlspecialchars($car['image_url']) ?>" alt="Imagem do Carro" width="100"></td>
                         <td><?= htmlspecialchars($car['brand']) ?></td>
                         <td><?= htmlspecialchars($car['model']) ?></td>

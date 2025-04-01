@@ -11,7 +11,11 @@ if (!isset($_SESSION["user_role"]) || $_SESSION["user_role"] !== "admin") {
 
 // Buscar os carros na base de dados
 $pdo = getPDO();
-$stmt = $pdo->query("SELECT * FROM cars");
+$stmt = $pdo->query("
+    SELECT c.*, ci.image_url 
+    FROM cars c
+    LEFT JOIN car_images ci ON c.id = ci.car_id
+");
 $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 

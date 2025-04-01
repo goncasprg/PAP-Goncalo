@@ -12,7 +12,12 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 $car_id = $_GET['id'];
 
 // Buscar informações do carro
-$stmt = $pdo->prepare("SELECT * FROM cars WHERE id = ?");
+$stmt = $pdo->prepare("
+    SELECT c.*, ci.image_url 
+    FROM cars c
+    LEFT JOIN car_images ci ON c.id = ci.car_id
+    WHERE c.id = ?
+");
 $stmt->execute([$car_id]);
 $car = $stmt->fetch(PDO::FETCH_ASSOC);
 

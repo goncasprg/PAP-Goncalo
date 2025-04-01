@@ -9,9 +9,23 @@ if (!isset($_GET["id"])) {
 $pdo = getPDO();
 $id = $_GET["id"];
 
-$stmt = $pdo->prepare("DELETE FROM cars WHERE id = ?");
-$stmt->execute([$id]);
+try {
+    $pdo->beginTransaction();
 
-header("Location: index.php");
-exit();
+    // Apagar imagens associadas ao carro
+    $stmt = $pdo->prepare("DELETE FROM car_images WHERE car_id = ?");
+    $stmt->execute([$id]);
+
+    // Agora podemos apagar o carro
+    $stmt = $pdo->prepare("DELETE FROM cars WHERE id = ?");
+    $stmt->execute([$id]);
+
+    $pdo->commit();
+
+    header("Location: index.php");
+    exit();
+} catch (Exception $e) {
+    $pdo->rollBack();
+    die("Erro ao apagar carro: " . $e->getMessage());
+}
 ?>

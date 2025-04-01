@@ -32,21 +32,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price = $_POST["price"] ?? '';
     $description = $_POST["description"] ?? '';
 
+    // Validação do campo 'traction'
+    $validTractions = ['FWD', 'RWD', 'AWD', '4x4'];
+    if (!in_array($traction, $validTractions)) {
+        die("Erro: Valor inválido para o campo 'traction'.");
+    }
+
+    // Validação do campo 'service_history'
+    $validServiceHistory = ['Sim', 'Não'];
+    if (!in_array($service_history, $validServiceHistory)) {
+        die("Erro: Valor inválido para o campo 'service_history'.");
+    }
+
     $pdo->beginTransaction();
 
     try {
+        // Inserir os dados do carro na tabela cars
         $stmt = $pdo->prepare("INSERT INTO cars (brand, model, registration_year, mileage, seats, doors, fuel_type, fuel_consumption, co2_emissions, power, top_speed, acceleration, gearbox, engine_capacity, fuel_tank_capacity, transmission, traction, color, dimensions, trunk_capacity, warranty, previous_owners, service_history, `condition`, price, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$brand, $model, $registration_year, $mileage, $seats, $doors, $fuel_type, $fuel_consumption, $co2_emissions, $power, $top_speed, $acceleration, $gearbox, $engine_capacity, $fuel_tank_capacity, $transmission, $traction, $color, $dimensions, $trunk_capacity, $warranty, $previous_owners, $service_history, $condition, $price, $description]);
 
+        // Obter o ID do carro recém-inserido
         $car_id = $pdo->lastInsertId();
 
+        // Verificar se uma imagem foi enviada
         if (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
             $imagePath = "../assets/images/carros/" . basename($_FILES["image"]["name"]);
-            move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
-            $image_url = substr($imagePath, 3);
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath)) {
+                $image_url = substr($imagePath, 3); // Remover "../" para armazenar corretamente na BD
 
-            $stmt = $pdo->prepare("INSERT INTO car_images (car_id, image_url) VALUES (?, ?)");
-            $stmt->execute([$car_id, $image_url]);
+                // Inserir o link da imagem na tabela car_images
+                $stmt = $pdo->prepare("INSERT INTO car_images (car_id, image_url) VALUES (?, ?)");
+                $stmt->execute([$car_id, $image_url]);
+            } else {
+                throw new Exception("Erro ao mover o arquivo de imagem.");
+            }
+        } else {
+            throw new Exception("Nenhuma imagem foi enviada ou ocorreu um erro no upload.");
         }
 
         $pdo->commit();
@@ -71,12 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <h1>Adicionar Novo Carro</h1>
-    <form action="add_car.php" method="post" enctype="multipart/form-data">    
+    <form action="add_car.php" method="post" enctype="multipart/form-data">
         <input type="text" name="brand" placeholder="Marca" required>
         <input type="text" name="model" placeholder="Modelo" required>
         <input type="number" name="registration_year" placeholder="Ano de Registo" required>
         <input type="number" name="mileage" placeholder="Quilometragem" required>
-        <input type="number" name="seats" placeholder="Número de Assentos" required>
+        <input type="number" name="seats" placeholder="Número de Lugares" required>
         <input type="number" name="doors" placeholder="Número de Portas" required>
 
         <!-- Corrigido: Nome do campo alterado para fuel_type -->
@@ -108,8 +129,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Corrigido: Valores do campo traction -->
         <select name="traction" required>
             <option value="" disabled selected>Selecione o tipo de tração</option>
-            <option value="Dianteira">Dianteira</option>
-            <option value="Traseira">Traseira</option>
+            <option value="FWD">Dianteira (FWD)</option>
+            <option value="RWD">Traseira (RWD)</option>
+            <option value="AWD">Integral (AWD)</option>
             <option value="4x4">4x4</option>
         </select>
 
@@ -118,7 +140,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="trunk_capacity" placeholder="Capacidade do Porta-Malas (L)" required>
         <input type="number" name="warranty" placeholder="Garantia (meses)" required>
         <input type="number" name="previous_owners" placeholder="Número de Proprietários Anteriores" required>
-        <input type="text" name="service_history" placeholder="Histórico de Serviço" required>
+
+        <!-- Dropdown para Histórico de Serviço -->
+        <select name="service_history" required>
+            <option value="" disabled selected>Histórico de Serviço</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
 
         <!-- Dropdown para Condição -->
         <select name="condition" required>
@@ -130,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input type="number" step="0.01" name="price" placeholder="Preço (€)" required>
         <textarea name="description" placeholder="Descrição do Carro" required></textarea>
-        <input type="file" name="image" required>
+        <input type="file" name="image" accept="image/*" required>
 
         <button type="submit">Adicionar</button>
     </form>

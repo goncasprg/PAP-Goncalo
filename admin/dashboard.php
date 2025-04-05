@@ -57,25 +57,26 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </thead>
                 <tbody>
                     <?php foreach ($cars as $car): ?>
-                    <tr class="clickable-row" data-href="car_details.php?id=<?= $car['id'] ?>">
+                        <tr class="clickable-row" data-href="car_details.php?id=<?= $car['id'] ?>">
 
-                        <td><img src="../<?= htmlspecialchars($car['image_url']) ?>" alt="Imagem do Carro" width="100"></td>
-                        <td><?= htmlspecialchars($car['brand']) ?></td>
-                        <td><?= htmlspecialchars($car['model']) ?></td>
-                        <td><?= htmlspecialchars($car['registration_year']) ?></td>
-                        <td><?= number_format($car['price'], 2, ',', '.') ?>€</td>
-                        <td>
-                            <form action="edit_car.php" method="get" style="display:inline;">
-                                <input type="hidden" name="id" value="<?= $car['id'] ?>">
-                                <button type="submit" class="edit-btn">Editar</button>
-                            </form>
-                            <form action="delete_car.php" method="get" style="display:inline;"
-                                onsubmit="return confirm('Tem certeza que deseja remover este carro?')">
-                                <input type="hidden" name="id" value="<?= $car['id'] ?>">
-                                <button type="submit" class="delete-btn">Remover</button>
-                            </form>
-                        </td>
-                    </tr>
+                            <td><img src="../<?= htmlspecialchars($car['image_url']) ?>" alt="Imagem do Carro" width="100">
+                            </td>
+                            <td><?= htmlspecialchars($car['brand']) ?></td>
+                            <td><?= htmlspecialchars($car['model']) ?></td>
+                            <td><?= htmlspecialchars($car['registration_year']) ?></td>
+                            <td><?= number_format($car['price'], 2, ',', '.') ?>€</td>
+                            <td>
+                                <form action="edit_car.php" method="get" style="display:inline;">
+                                    <input type="hidden" name="id" value="<?= $car['id'] ?>">
+                                    <button type="submit" class="edit-btn">Editar</button>
+                                </form>
+                                <form action="delete_car.php" method="get" style="display:inline;"
+                                    onsubmit="return confirm('Tem certeza que deseja remover este carro?')">
+                                    <input type="hidden" name="id" value="<?= $car['id'] ?>">
+                                    <button type="submit" class="delete-btn">Remover</button>
+                                </form>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>

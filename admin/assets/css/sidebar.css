@@ -25,7 +25,7 @@ nav {
   left: 0;
   height: 100vh;
   background-color: var(--primary-color);
-  width: 18rem;
+  width: 16rem;
   padding: 0.25rem 0.75rem;
   display: flex;
   color: var(--white);
@@ -128,7 +128,7 @@ position: relative;
 padding: 0.875rem 0.675rem;
 margin: 0.5rem 0;
 color: var(--sidebar-gray-light);
-font-size: 1.25rem;
+font-size: 1.2rem;
 display: flex;
 justify-content: start;
 align-items: center;

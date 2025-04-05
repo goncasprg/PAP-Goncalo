@@ -8,40 +8,37 @@ $car2_id = isset($_GET['car2']) ? intval($_GET['car2']) : 0;
 // Obter a conexão PDO
 $pdo = getPDO();
 
-// Buscar informações dos carros com a imagem associada
-$sql = "SELECT c.*, 
-            (SELECT image_url FROM car_images WHERE car_id = c.id LIMIT 1) AS image_url 
+// Buscar informações dos carros e a imagem associada
+$sql = "SELECT c.*, ci.image_url 
         FROM cars c 
+        LEFT JOIN car_images ci ON c.id = ci.car_id
         WHERE c.id IN (:car1_id, :car2_id)";
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':car1_id', $car1_id, PDO::PARAM_INT);
 $stmt->bindParam(':car2_id', $car2_id, PDO::PARAM_INT);
 $stmt->execute();
-$cars = $stmt->fetchAll();
+$cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados da Comparação</title>
     <link rel="stylesheet" href="../css/comparar_resultados.css">
 </head>
-
 <body>
     <h1>Resultados da Comparação</h1>
     <div class="comparison-container">
         <?php foreach ($cars as $car): ?>
             <div class="car-card">
                 <?php 
-                    // Corrigir o caminho da imagem
-                    $imageUrl = !empty($car['image_url']) ? './assets/images/carros/' . htmlspecialchars($car['image_url']) : './assets/images/carros/default-car.jpg';
+                    // Caminho da imagem
+                    $imageUrl = !empty($car['image_url']) ? '../assets/images/carros/' . htmlspecialchars($car['image_url']) : '../assets/images/carros/default-car.jpg';
                 ?>
-                <img src="<?php echo $imageUrl; ?>" 
-                    alt="<?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>">
+                <img src="<?php echo $imageUrl; ?>" alt="Imagem do carro" class="car-image">
                 <h2><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h2>
                 <p>Ano: <?php echo htmlspecialchars($car['registration_year']); ?></p>
                 <p>Quilometragem: <?php echo htmlspecialchars($car['mileage']); ?> km</p>
@@ -70,5 +67,4 @@ $cars = $stmt->fetchAll();
         <?php endforeach; ?>
     </div>
 </body>
-
 </html>

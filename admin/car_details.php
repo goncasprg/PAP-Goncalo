@@ -28,6 +28,7 @@ if (!$car) {
 
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,13 +41,12 @@ if (!$car) {
 
     <header>
         <h1>Detalhes do Carro</h1>
-        <a href="dashboard.php" class="btn-back">Voltar</a>
+        <a href="dashboard.php" class="btn-back">←</a>
     </header>
 
     <section class="car-details">
         <h2 class="car-title"><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h2>
         <img src="../<?php echo htmlspecialchars($car['image_url']); ?>" alt="Imagem do carro" class="car-image">
-        
         <div class="car-info">
             <p><strong>Ano:</strong> <?php echo htmlspecialchars($car['registration_year']); ?></p>
             <p><strong>Quilometragem:</strong> <?php echo htmlspecialchars($car['mileage']); ?> km</p>
@@ -78,4 +78,5 @@ if (!$car) {
     </section>
 
 </body>
+
 </html>

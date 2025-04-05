@@ -7,9 +7,9 @@ expand_btn.addEventListener("click", () => {
   document.body.classList.toggle("collapsed");
 });
 
-const current = window.location.href;
+  const body = document.body;
+  const expandBtn = document.querySelector(".expand-btn");
 
-const allLinks = document.querySelectorAll(".sidebar-links a");
 
 allLinks.forEach((elem) => {
   elem.addEventListener('click', function() {

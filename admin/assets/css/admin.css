@@ -19,11 +19,16 @@ body {
 .container {
     width: 90%;
     max-width: 1400px;
-    margin-left: 18rem;
+    margin-left: 16rem;
     padding: 2rem;
     background: white;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: margin-left 0.5s ease-in-out;
+}
+
+body.collapsed .container {
+    margin-left: 5rem;
 }
 
 /* Cabeçalho */
@@ -120,8 +125,6 @@ td {
 
 /* Formulários */
 form {
-    background: white;
-    padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }

@@ -24,9 +24,9 @@
       <ul>
         <li>
           <a href="#dashboard" title="Dashboard" class="tooltip">
-            <img src="../admin/assets/images/dashboard.svg" alt="Dashboard">
-            <span class="link hide">Dashboard</span>
-            <span class="tooltip__content">Dashboard</span>
+            <img src="../admin/assets/images/car_icon.png" alt="Gestão de Viaturas">
+            <span class="link hide">Gestão de Viaturas</span>
+            <span class="tooltip__content">Gestão de Viaturas</span>
           </a>
         </li>
         <li>

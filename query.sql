@@ -81,3 +81,14 @@ VALUES
 (5, 'assets/images/carros/VW_Golf.jpg');
 
 ALTER TABLE users MODIFY last_name VARCHAR(50) DEFAULT NULL;
+
+
+CREATE TABLE reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    car_id INT NOT NULL,
+    user_name VARCHAR(100) NOT NULL,
+    rating INT CHECK (rating BETWEEN 1 AND 5),
+    comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (car_id) REFERENCES cars(id) ON DELETE CASCADE
+);

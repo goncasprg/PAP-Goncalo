@@ -13,19 +13,18 @@
     <div class="contact-container">
         <!-- Texto à esquerda -->
         <div class="contact-text">
-            <h1>Contact Us</h1>
-            <p>Email, call, or complete the form to learn how Snappy can solve your messaging problem.</p>
-            <p><strong>Email:</strong> info@snappy.io</p>
-            <p><strong>Phone:</strong> 321-221-231</p>
-            <a href="#">Customer Support</a>
+            <h1>Fale connosco!</h1>
+            <p>Tem alguma dúvida sobre os nossos veículos ou serviços? Estamos aqui para ajudar! Entre em contacto connosco e a nossa equipa responderá o mais rápido possível.</p>
+            <p><strong>Email:</strong> pirukacheiroso@gmail.com</p>
+            <p><strong>Phone:</strong>  (+351) 966 840 321</p>
         </div>
 
         <div class="contact-form">
             <h2>Entre em contato</h2>
-            <p>Pode nos contatar a qualquer momento.</p>
+            <p>Podes entrar em contacto em qualquer momento</p>
 
             <form action="process_contact.php" method="POST">
-                <div class="form-group">
+                <div class="name-row">
                     <input type="text" name="first_name" placeholder="Primeiro Nome" required>
                     <input type="text" name="last_name" placeholder="Último Nome" required>
                 </div>

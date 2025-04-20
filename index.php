@@ -32,7 +32,7 @@ session_start();
                 <li class="nav-item"><a href="index.php" class="nav-link">Início</a></li>
                 <li class="nav-item"><a href="./assets/html/veiculos.php" class="nav-link">Viaturas</a></li>
                 <li class="nav-item"><a href="./assets/html/comparar.php" class="nav-link">Comparar</a></li>
-                <li class="nav-item"><a href="./assets/html/sobre_nos.html" class="nav-link">Sobre Nós</a></li>
+                <li class="nav-item"><a href="./assets/html/sobre_nos.php" class="nav-link">Sobre Nós</a></li>
                 <li class="nav-item"><a href="./assets/html/contactar.php" class="nav-link">Contactar</a></li>
             </ul>
         </nav>

@@ -1,0 +1,86 @@
+/* sobre_nos.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+.inicio_txt, .missao, .valores {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    gap: 40px;
+}
+
+.inicio_txt {
+    flex-direction: row;
+    background: white;
+}
+
+.inicio_txt img {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.inicio_txt div {
+    flex: 1;
+}
+
+/* Seção Missão - imagem à direita */
+.missao {
+    flex-direction: row-reverse;
+    background-color: #ffffff;
+}
+
+.missao img {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Seção Valores - imagem à esquerda */
+.valores {
+    flex-direction: row;
+    background-color: #ffffff;
+}
+
+.valores img {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Estilo para os títulos e parágrafos */
+h1, h2 {
+    color: #333;
+}
+
+p, li {
+    color: #555;
+    font-size: 1rem;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .inicio_txt, .missao, .valores {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .inicio_txt img,
+    .missao img,
+    .valores img {
+        width: 100%;
+    }
+}

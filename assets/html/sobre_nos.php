@@ -28,4 +28,7 @@
         </div>
     </div>
 
+    <div class="avaliacoes">
+        <h1>Os clientes falam por nós</h1>
+    </div>
 </body>

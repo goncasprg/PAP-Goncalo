@@ -8,7 +8,7 @@ body {
     background-color: #f5f5f5;
 }
 
-.inicio_txt, .missao, .valores {
+.inicio, .missao, .valores {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,19 +16,19 @@ body {
     gap: 40px;
 }
 
-.inicio_txt {
+.inicio {
     flex-direction: row;
     background: white;
 }
 
-.inicio_txt img {
+.inicio img {
     width: 50%;
     max-width: 500px;
     height: auto;
     border-radius: 10px;
 }
 
-.inicio_txt div {
+.inicio div {
     flex: 1;
 }
 

@@ -12,6 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 40px;
+    background-color: #333;
 }
 
 /* Estiliza o container principal */
@@ -26,6 +27,7 @@ body {
 
 /* Estiliza o texto à esquerda */
 .contact-text {
+    color: white;
     flex: 1;
     max-width: 45%;
 }

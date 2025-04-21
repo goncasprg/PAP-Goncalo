@@ -33,7 +33,7 @@ session_start();
                 <li class="nav-item"><a href="./assets/html/veiculos.php" class="nav-link">Viaturas</a></li>
                 <li class="nav-item"><a href="./assets/html/comparar.php" class="nav-link">Comparar</a></li>
                 <li class="nav-item"><a href="./assets/html/sobre_nos.php" class="nav-link">Sobre Nós</a></li>
-                <li class="nav-item"><a href="./assets/html/contactar.php" class="nav-link">Contactar</a></li>
+                <li class="nav-item"><a href="./assets/html/contact.php" class="nav-link">Contactar</a></li>
             </ul>
         </nav>
 
@@ -99,6 +99,60 @@ session_start();
                
             </div>
         </section>
+        <form action="/assets/php/reviews.php" method="POST">
+    <!-- Sistema de estrelas -->
+    <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5" required />
+        <label title="Excelente!" for="star5">
+        <!-- SVG da estrela 5 -->
+        </label>
+
+        <input type="radio" id="star4" name="rating" value="4" />
+        <label title="Muito bom!" for="star4">
+        <!-- SVG da estrela 4 -->
+        </label>
+
+        <input type="radio" id="star3" name="rating" value="3" />
+        <label title="Bom" for="star3">
+        <!-- SVG da estrela 3 -->
+        </label>
+
+        <input type="radio" id="star2" name="rating" value="2" />
+        <label title="Razoável" for="star2">
+        <!-- SVG da estrela 2 -->
+        </label>
+
+        <input type="radio" id="star1" name="rating" value="1" />
+        <label title="Mau" for="star1">
+        <!-- SVG da estrela 1 -->
+        </label>
+    </div>
+
+    <br>
+    <textarea name="comment" rows="4" cols="50" placeholder="Diz-nos a tua opinião sobre o stand!" required></textarea>
+    <br><br>
+    <button type="submit">Enviar Avaliação</button>
+    </form>
+        <div class="section-cards">
+            <h1 class="txt-destaque">Avaliações</h1>
+            <div id="reviews-container" class="reviews-container">
+                <?php
+                $sql = "SELECT * FROM reviews ORDER BY created_at DESC";
+                $stmt = getPDO()->prepare($sql);
+                $stmt->execute();
+
+                while ($row = $stmt->fetch()) {
+                    echo "<div class='review'>";
+                    echo "<p><strong>" . htmlspecialchars($row['created_at']) . "</strong></p>";
+                    echo "<p>" . htmlspecialchars($row['comment']) . "</p>";
+                    echo "<p>Avaliação: " . htmlspecialchars($row['rating']) . " estrelas</p>";
+                    echo "</div>";
+                }
+                ?>
+            </div>
+        </div>
+
+
     </main>
 
     <?php include("./assets/html/footer.php"); ?>
@@ -125,6 +179,7 @@ session_start();
         }
     });
     </script>
+    
 </body>
 
 </html>

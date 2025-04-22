@@ -101,7 +101,7 @@
 
 #star5:hover ~ label > svg,
 #star5:hover > svg {
-  fill: #9f7e18 !important;
+  fill: #d0a31d !important;
 }
 
 #star1:checked ~ label > svg {

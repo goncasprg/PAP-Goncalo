@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once '../assets/php/db.php';
+require_once '../php/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    // Utilizador não está autenticado, redireciona para login
-    header("Location: ../login.php");
+    // Utilizador não autenticado, redireciona para login
+    header("Location: ../html/login.php");
     exit;
 }
 
@@ -14,19 +14,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $comment = trim($_POST['comment'] ?? '');
 
     if ($rating && !empty($comment)) {
-        $stmt = $pdo->prepare("INSERT INTO reviews (user_id, rating, comment, created_at) VALUES (?, ?, ?, NOW())");
-        $stmt->execute([$user_id, $rating, $comment]);
+        try {
+            $pdo = getPDO();
+            $stmt = $pdo->prepare("INSERT INTO reviews (user_id, rating, comment, created_at) VALUES (?, ?, ?, NOW())");
+            $stmt->execute([$user_id, $rating, $comment]);
 
-        // Redireciona para a página principal
-        header("Location: ../index.php");
-        exit;
+            // Redireciona para a página principal com sucesso
+            header("Location: ../../index.php?success=1");
+            exit;
+        } catch (PDOException $e) {
+            // Em caso de erro, redireciona com uma mensagem de erro
+            header("Location: ../../index.php?error=database_error");
+            exit;
+        }
     } else {
         // Campos obrigatórios em falta
-        header("Location: ../index.php?error=missing_fields");
+        header("Location: ../../index.php?error=missing_fields");
         exit;
     }
 } else {
     // Requisição inválida
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
     exit;
 }

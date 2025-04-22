@@ -9,7 +9,6 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="./assets/css/header.css" />
     <link rel="stylesheet" href="./assets/css/banner.css" />
     <link rel="stylesheet" href="./assets/css/cards.css" />
@@ -104,27 +103,27 @@ session_start();
     <div class="rating">
         <input type="radio" id="star5" name="rating" value="5" required />
         <label title="Excelente!" for="star5">
-        <!-- SVG da estrela 5 -->
+        
         </label>
 
         <input type="radio" id="star4" name="rating" value="4" />
         <label title="Muito bom!" for="star4">
-        <!-- SVG da estrela 4 -->
+        
         </label>
 
         <input type="radio" id="star3" name="rating" value="3" />
         <label title="Bom" for="star3">
-        <!-- SVG da estrela 3 -->
+        
         </label>
 
         <input type="radio" id="star2" name="rating" value="2" />
         <label title="Razoável" for="star2">
-        <!-- SVG da estrela 2 -->
+        
         </label>
 
         <input type="radio" id="star1" name="rating" value="1" />
         <label title="Mau" for="star1">
-        <!-- SVG da estrela 1 -->
+        
         </label>
     </div>
 

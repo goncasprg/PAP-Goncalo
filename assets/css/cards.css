@@ -14,7 +14,9 @@
 }
 
 .txt-destaque {
-    margin-left: .5em;
+    font-size:2em;
+    margin-left: .7em;
+    margin-bottom: .2em;
 }
 
 .card {

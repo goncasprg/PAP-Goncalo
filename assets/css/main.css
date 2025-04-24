@@ -91,7 +91,7 @@
 
 #star3:hover ~ label > svg,
 #star3:hover > svg {
-  fill: #99542d !important;
+  fill: #9e5226 !important;
 }
 
 #star4:hover ~ label > svg,
@@ -113,7 +113,7 @@
 }
 
 #star3:checked ~ label > svg {
-  fill: #e06c2b;
+  fill: #c54e0a;
 }
 
 #star4:checked ~ label > svg {

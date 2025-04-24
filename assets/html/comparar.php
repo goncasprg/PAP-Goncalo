@@ -12,9 +12,9 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $allCars = $stmt->fetchAll();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,6 +42,7 @@ $allCars = $stmt->fetchAll();
     </style>
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <h1>Comparação de Carros</h1>
 
     <!-- Formulário para selecionar os carros -->

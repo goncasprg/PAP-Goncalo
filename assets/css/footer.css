@@ -22,6 +22,7 @@
 }
 
 .logo {
+  max-width: 150px;
   height: 70px; /* Ajuste conforme necessário */
   margin-bottom: 10px; /* Espaço abaixo da logo */
 }

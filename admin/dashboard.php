@@ -42,8 +42,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <section class="dashboard">
             <h2>Lista de Carros</h2>
-            <a href="add_car.php" class="btn">Adicionar Novo Carro</a>
-
+            <button href="add_car.php" class="add-btn">Adicionar Novo Carro</button>
             <table>
                 <thead>
                     <tr>

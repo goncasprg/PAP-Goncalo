@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 <link rel="stylesheet" href="../css/header.css">
 <header class="header" id="header">
-    <a href="index.php" class="nav-logo">
+    <a href="/PAP-Goncalo/index.php" class="nav-logo">
         <img src="/PAP-Goncalo/assets/images/carchoicedrk.png" alt="Logo CarChoice" />
 
     </a>

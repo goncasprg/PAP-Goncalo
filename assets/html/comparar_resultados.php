@@ -30,6 +30,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../css/comparar_resultados.css">
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <h1>Resultados da Comparação</h1>
     <div class="comparison-container">
         <?php foreach ($cars as $car): ?>

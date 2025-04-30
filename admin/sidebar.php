@@ -18,7 +18,7 @@
       </a>
       <div class="expand-btn">
         <img src="../admin/assets/images/chevron.svg" alt="Chevron">
-      </div>§
+      </div>
     </div>
     <div class="sidebar-links">
       <ul>

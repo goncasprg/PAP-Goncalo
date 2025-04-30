@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($rating && !empty($comment)) {
         try {
             $pdo = getPDO();
-            $stmt = $pdo->prepare("INSERT INTO reviews (user_id, rating, comment, created_at) VALUES (?, ?, ?, NOW())");
+            $stmt = $pdo->prepare("INSERT INTO stand_reviews (user_id, rating, comment, created_at) VALUES (?, ?, ?, NOW())");
             $stmt->execute([$user_id, $rating, $comment]);
 
             // Redireciona para a página principal com sucesso

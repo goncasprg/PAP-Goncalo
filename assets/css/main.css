@@ -51,42 +51,44 @@
     opacity: 1;
 }
 
+.rating {
+    display: flex;
+    flex-direction: row-reverse; /* Inverte a ordem das estrelas */
+    justify-content: center; /* Centraliza as estrelas */
+    gap: 10px; /* Espaçamento entre as estrelas */
+}
+
 .rating > label {
-  margin-right: 4px;
+    cursor: pointer;
+    font-size: 30px;
 }
 
 .rating:not(:checked) > input {
-  display: none;
-}
-
-.rating:not(:checked) > label {
-  float: right;
-  cursor: pointer;
-  font-size: 30px;
+    display: none; /* Oculta os inputs de rádio */
 }
 
 .rating:not(:checked) > label > svg {
-  fill: #666;
-  transition: fill 0.3s ease;
+    fill: #666;
+    transition: fill 0.3s ease;
 }
 
 .rating > input:checked ~ label > svg {
-  fill: #ffa723;
+    fill: #ffa723;
 }
 
 .rating:not(:checked) > label:hover ~ label > svg,
 .rating:not(:checked) > label:hover > svg {
-  fill: #ff9e0b;
+    fill: #ff9e0b;
 }
 
 /* Cores ao passar o mouse */
-#star1:hover ~ label > svg,
-#star1:hover > svg {
+#star5:hover ~ label > svg,
+#star5:hover > svg {
   fill: #d0a31d !important; /* Cor da estrela 5 */
 }
 
-#star2:hover ~ label > svg,
-#star2:hover > svg {
+#star4:hover ~ label > svg,
+#star4:hover > svg {
   fill: #22885e !important; /* Cor da estrela 4 */
 }
 
@@ -95,41 +97,40 @@
   fill: #9e5226 !important; /* Cor original da estrela 3 */
 }
 
-#star4:hover ~ label > svg,
-#star4:hover > svg {
+#star2:hover ~ label > svg,
+#star2:hover > svg {
   fill: #a23c3c !important; /* Cor da estrela 2 */
 }
 
-#star5:hover ~ label > svg,
-#star5:hover > svg {
-  fill: #a23c3c !important; /* Cor da estrela 1 */
+#star1:hover ~ label > svg,
+#star1:hover > svg {
+  fill: #ef4444 !important; /* Cor da estrela 1 */
 }
 
 /* Cores ao selecionar */
-#star1:checked ~ label > svg {
-  fill: #eab308; /* Cor da estrela 5 */
-}
-
-#star2:checked ~ label > svg {
-  fill: #19c37d; /* Cor da estrela 4 */
-}
-
-#star3:checked ~ label > svg {
-  fill: #c54e0a; /* Cor original da estrela 3 */
+#star5:checked ~ label > svg {
+  fill: #d0a31d; /* Cor da estrela 5 */
 }
 
 #star4:checked ~ label > svg {
-  fill: #ef4444; /* Cor da estrela 2 */
+  fill: #22885e; /* Cor da estrela 4 */
 }
 
-#star5:checked ~ label > svg {
+#star3:checked ~ label > svg {
+  fill: #9e5226; /* Cor original da estrela 3 */
+}
+
+#star2:checked ~ label > svg {
+  fill: #a23c3c; /* Cor da estrela 2 */
+}
+
+#star1:checked ~ label > svg {
   fill: #ef4444; /* Cor da estrela 1 */
 }
 
 /* Centralizar o formulário */
 form {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 20px auto;
@@ -137,7 +138,6 @@ form {
     background-color: #f9f9f9;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
     width: 90%;
 }
 
@@ -169,29 +169,93 @@ button[type="submit"]:hover {
     background-color: #ff8c00;
 }
 
-/* Centralizar e alinhar as estrelas */
-.rating {
+/* Estilo para o formulário de avaliações */
+.review-form {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+}
+
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.review-form button[type="submit"] {
+    background-color: #ffa723;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     margin-top: 15px;
 }
 
-.rating > label {
-    margin-right: 4px;
-    cursor: pointer;
-    font-size: 30px;
+.review-form button[type="submit"]:hover {
+    background-color: #ff8c00;
 }
 
-.rating:not(:checked) > label > svg {
-    fill: #666;
-    transition: fill 0.3s ease;
+/* Container das avaliações */
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* Espaçamento entre as avaliações */
+    flex-wrap: wrap; /* Permite que as avaliações quebrem para a próxima linha em telas menores */
+    margin-top: 20px;
+    padding: 10px;
 }
 
-.rating > input:checked ~ label > svg {
-    fill: #ffa723;
+/* Estilo de cada avaliação */
+.review {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 250px; /* Largura fixa para cada avaliação */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.rating:not(:checked) > label:hover ~ label > svg,
-.rating:not(:checked) > label:hover > svg {
-    fill: #ff9e0b;
+.review:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Data da avaliação */
+.review-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Comentário da avaliação */
+.review-comment {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* Avaliação (estrelas) */
+.review-rating {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffa723;
 }

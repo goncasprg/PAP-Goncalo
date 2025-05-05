@@ -42,7 +42,7 @@ $allCars = $stmt->fetchAll();
     </style>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include("header.php"); ?>
     <h1>Comparação de Carros</h1>
 
     <!-- Formulário para selecionar os carros -->

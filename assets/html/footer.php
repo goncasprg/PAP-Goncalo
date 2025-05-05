@@ -22,5 +22,5 @@
             <p><i class="fas fa-envelope"></i> email@exemplo.com</p>
         </div>
     </div>
-    <p class="copyright">© 2025 Seu Stand. Todos os direitos reservados.</p>
+    <p class="copyright">© 2025 CarChoice. Todos os direitos reservados.</p>
 </div>

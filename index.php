@@ -163,7 +163,7 @@ if (isset($notification)) {
             </div>
 
             <div class="banner-form-container">
-                <form action="veiculos.php" method="GET">
+                <form action="api/veiculos.php" method="GET">
                     <select name="brand" id="brand">
                         <option value="">Selecione uma marca</option>
                         <?php
@@ -225,8 +225,11 @@ if (isset($notification)) {
                 ?>
             </div>
         </div>
-        <h1 class="titulo-avaliar">Também queremos a tua opinião!</h1>
-         <!-- Formulário de Avaliação -->
+        <div class="titulos-avaliar">
+            <h1 class="titulo-avaliar">Também queremos a tua opinião!</h1>
+            <h2 class="sub-avaliar">O que tens a dizer do nosso serviço?</h2>
+        </div>
+        <!-- Formulário de Avaliação -->
         <form class="review-form" action="assets/php/reviews.php" method="POST">
             <div class="rating">
                 <input type="radio" id="star5" name="rating" value="5" required />
@@ -276,7 +279,7 @@ if (isset($notification)) {
             <br><br>
             <button type="submit">Enviar Avaliação</button>
         </form>
-        
+
     </main>
 
     <!-- Footer -->

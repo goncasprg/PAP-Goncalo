@@ -151,10 +151,18 @@ textarea {
     font-size: 16px;
     margin-top: 10px;
 }
-
+.titulo-avaliar {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    justify-content: center;
+    
+}
 /* Botão de envio */
 button[type="submit"] {
-    background-color: #ffa723;
+    background-color: #333;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -166,7 +174,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #ff8c00;
+    background-color: #333;
 }
 
 /* Estilo para o formulário de avaliações */
@@ -195,7 +203,7 @@ button[type="submit"]:hover {
 }
 
 .review-form button[type="submit"] {
-    background-color: #ffa723;
+    background-color: #333;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -207,7 +215,7 @@ button[type="submit"]:hover {
 }
 
 .review-form button[type="submit"]:hover {
-    background-color: #ff8c00;
+    background-color: #161616;
 }
 
 /* Container das avaliações */

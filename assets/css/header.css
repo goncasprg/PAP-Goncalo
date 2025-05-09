@@ -120,6 +120,28 @@
     transform: scale(100) translateX(1px);
 }
 
+/* Logout button */
+.logout-button {
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.logout-button:hover {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 0 10px #ffffffaa;
+}
+
 /* Animação de aparição */
 @keyframes appear {
     to {

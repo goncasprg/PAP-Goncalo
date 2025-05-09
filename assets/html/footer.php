@@ -18,8 +18,8 @@
         </div>
         <div class="contact-section">
             <p><strong>Contactos</strong></p>
-            <p><i class="fas fa-phone"></i> +351 123 456 789</p>
-            <p><i class="fas fa-envelope"></i> email@exemplo.com</p>
+            <p><i class="fas fa-phone"></i> +351 966 840 321</p>
+            <p><i class="fas fa-envelope"></i> suporte@carchoice.com</p>
         </div>
     </div>
     <p class="copyright">© 2025 CarChoice. Todos os direitos reservados.</p>

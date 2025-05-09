@@ -99,29 +99,29 @@
 
 #star2:hover ~ label > svg,
 #star2:hover > svg {
-  fill: #a23c3c !important; /* Cor da estrela 2 */
+  fill: #bd2a2a !important; /* Cor da estrela 2 */
 }
 
 #star1:hover ~ label > svg,
 #star1:hover > svg {
-  fill: #ef4444 !important; /* Cor da estrela 1 */
+  fill: #bd2a2a !important; /* Cor da estrela 1 */
 }
 
 /* Cores ao selecionar */
 #star5:checked ~ label > svg {
-  fill: #d0a31d; /* Cor da estrela 5 */
+  fill: #edb407; /* Cor da estrela 5 */
 }
 
 #star4:checked ~ label > svg {
-  fill: #22885e; /* Cor da estrela 4 */
+  fill: #18b473; /* Cor da estrela 4 */
 }
 
 #star3:checked ~ label > svg {
-  fill: #9e5226; /* Cor original da estrela 3 */
+  fill: #da8422; /* Cor original da estrela 3 */
 }
 
 #star2:checked ~ label > svg {
-  fill: #a23c3c; /* Cor da estrela 2 */
+  fill: #ef4444; /* Cor da estrela 2 */
 }
 
 #star1:checked ~ label > svg {
@@ -217,12 +217,13 @@ button[type="submit"]:hover {
     background-color: #333;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 15px;
+    margin-top: 10px;
+
 }
 
 .review-form button[type="submit"]:hover {
@@ -230,6 +231,7 @@ button[type="submit"]:hover {
 }
 
 /* Container das avaliações */
+
 .reviews-container {
     display: flex;
     justify-content: center;
@@ -240,41 +242,43 @@ button[type="submit"]:hover {
     padding: 10px;
 }
 
-/* Estilo de cada avaliação */
+/* Avaliações Clientes cards*/
 .review {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    width: 250px; /* Largura fixa para cada avaliação */
-    text-align: center;
+    height: 320px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5em;
+    padding: 30px 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.review:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Data da avaliação */
-.review-date {
-    font-size: 0.9rem;
-    color: #666;
+.name-review {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #333;
     margin-bottom: 10px;
 }
-
-/* Comentário da avaliação */
-.review-comment {
+.row-stars-review {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffa723;
+}
+.text-review {
     font-size: 1rem;
     color: #333;
     margin-bottom: 10px;
     font-style: italic;
 }
-
-/* Avaliação (estrelas) */
-.review-rating {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #ffa723;
+.date-review {
+    font-weight: regular;
+    font-size: 0.9rem;
+    color: #000000a2;
+    margin-bottom: 10px;
 }

@@ -16,7 +16,7 @@
             <h1>Fale connosco!</h1>
             <p>Tem alguma dúvida sobre os nossos veículos ou serviços? Estamos aqui para ajudar! Entre em contacto connosco e a nossa equipa responderá o mais rápido possível.</p>
             <br>
-            <p><strong>Email:</strong> pirukacheiroso@gmail.com</p>
+            <p><strong>Email:</strong> suporte@carchoice.com</p>
             <p><strong>Telefone:</strong> (+351) 966 840 321</p>
         </div>
 

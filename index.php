@@ -208,23 +208,67 @@ if (isset($notification)) {
 
         <!-- Avaliações -->
         <div class="section-cards">
-            <h1 class="txt-destaque">Os nossos clientes falam por nós!</h1>
-            <div id="reviews-container" class="reviews-container">
-                <?php
-                $sql = "SELECT * FROM stand_reviews ORDER BY created_at DESC LIMIT 4";
-                $stmt = getPDO()->prepare($sql);
-                $stmt->execute();
+    <h1 class="txt-destaque">Os nossos clientes falam por nós!</h1>
+    <div id="reviews-container" class="reviews-container">
+        <?php
+        function getStarColor($rating) {
+            switch ($rating) {
+                case 5: return "#edb407";
+                case 4: return "#18b473";
+                case 3: return "#da8422";
+                case 2:
+                case 1: return "#ef4444";
+                default: return "#e0e0e0"; // caso de erro
+            }
+        }
 
-                while ($row = $stmt->fetch()) {
-                    echo "<div class='review'>";
-                    echo "<p class='review-date'><strong>" . htmlspecialchars(date("d/m/Y", strtotime($row['created_at']))) . "</strong></p>";
-                    echo "<p class='review-comment'>" . htmlspecialchars($row['comment']) . "</p>";
-                    echo "<p class='review-rating'>Avaliação: " . htmlspecialchars($row['rating']) . " estrelas</p>";
-                    echo "</div>";
-                }
-                ?>
-            </div>
-        </div>
+        $svgStar = function($filled, $color) {
+            $fill = $filled ? $color : "#e0e0e0";
+            return '<svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 576 512" fill="' . $fill . '">
+                <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 
+                150.3 51.4 171.5c-12 1.8-22 10.2-25.7 
+                21.7s-.7 24.2 7.9 32.7L137.8 329 
+                113.2 474.7c-2 12 3 24.2 12.9 
+                31.3s23 8 33.8 2.3l128.3-68.5 
+                128.3 68.5c10.8 5.7 23.9 4.9 
+                33.8-2.3s14.9-19.3 12.9-31.3L438.5 
+                329 542.7 225.9c8.6-8.5 11.7-21.2 
+                7.9-32.7s-13.7-19.9-25.7-21.7L381.2 
+                150.3 316.9 18z" />
+            </svg>';
+        };
+
+        $sql = "SELECT sr.*, u.first_name 
+                FROM stand_reviews sr
+                JOIN users u ON sr.user_id = u.id
+                ORDER BY sr.created_at DESC
+                LIMIT 4";
+        $stmt = getPDO()->prepare($sql);
+        $stmt->execute();
+
+        while ($row = $stmt->fetch()) {
+            $rating = (int) $row['rating'];
+            $starColor = getStarColor($rating);
+
+            echo "<div class='review'>";
+            echo "<div>";
+            echo "<h1 class='name-review'>" . htmlspecialchars($row['first_name']) . "</h1>";
+            echo "<div class='row-stars-review'>";
+            for ($i = 1; $i <= 5; $i++) {
+                echo $svgStar($i <= $rating, $starColor);
+            }
+            echo "</div>";
+            echo "</div>";
+            echo "<p class='text-review'>" . htmlspecialchars($row['comment']) . "</p>";
+            echo "<span class='date-review'>" . date("d/m/Y", strtotime($row['created_at'])) . "</span>";
+            echo "</div>";
+        }
+        ?>
+    </div>
+</div>
+
+
+
         <div class="titulos-avaliar">
             <h1 class="titulo-avaliar">Também queremos a tua opinião!</h1>
             <h2 class="sub-avaliar">O que tens a dizer do nosso serviço?</h2>

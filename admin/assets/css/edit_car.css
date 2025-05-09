@@ -1,0 +1,112 @@
+:root {
+    --primary-color: #1b568e;
+    --text: #EDF0F7;
+    --error: #dc3545;
+    --error-hover: #b10012;
+    --sidebar-gray-light: #F8F7FD;
+    --sidebar-gray-background: #4a4a4a;
+    --success: #00C896;
+    --white: #fff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--sidebar-gray-light);
+    color: #333;
+    margin: 0;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+form textarea {
+    grid-column: span 2;
+    resize: vertical;
+    height: 120px;
+}
+
+form input,
+form select,
+form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(27, 86, 142, 0.2);
+    outline: none;
+}
+
+form input[type="file"] {
+    padding: 0.4rem;
+    background-color: transparent;
+    border: none;
+}
+
+button[type="submit"], .btn-cancel {
+    grid-column: span 2;
+    background-color: var(--primary-color);
+    color: var(--text);
+    border: none;
+    padding: 0.9rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cancel {
+    background-color: var(--error);
+}
+.btn-cancel:hover {
+    background-color: var(--error-hover);
+}
+
+button[type="submit"]:hover {
+    background-color: #164872;
+}
+
+div[style*="color: red"] {
+    background-color: #ffe0e3;
+    border: 1px solid var(--error);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    button[type="submit"],
+    form textarea {
+        grid-column: span 1;
+    }
+}

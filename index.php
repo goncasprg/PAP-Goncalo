@@ -208,7 +208,7 @@ if (isset($notification)) {
 
         <!-- Avaliações -->
         <div class="section-cards">
-            <h1 class="txt-destaque">Últimas Avaliações</h1>
+            <h1 class="txt-destaque">Os nossos clientes falam por nós!</h1>
             <div id="reviews-container" class="reviews-container">
                 <?php
                 $sql = "SELECT * FROM stand_reviews ORDER BY created_at DESC LIMIT 4";

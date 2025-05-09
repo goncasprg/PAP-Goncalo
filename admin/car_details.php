@@ -41,7 +41,7 @@ if (!$car) {
 
     <header>
         <h1>Detalhes do Carro</h1>
-        <a href="dashboard.php" class="btn-back">←</a>
+        <a href="dashboard.php" class="btn-back">Voltar</a>
     </header>
 
     <section class="car-details">

@@ -24,12 +24,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Captura dos valores do formulário
         $fields = [
-            "brand", "model", "registration_year", "mileage", "seats", "doors", "fuel_type", "fuel_consumption",
-            "co2_emissions", "power", "top_speed", "acceleration", "gearbox", "engine_capacity", "fuel_tank_capacity",
-            "transmission", "traction", "color", "dimensions", "trunk_capacity", "warranty", "previous_owners",
-            "service_history", "condition", "price", "description"
+            "brand",
+            "model",
+            "registration_year",
+            "mileage",
+            "seats",
+            "doors",
+            "fuel_type",
+            "fuel_consumption",
+            "co2_emissions",
+            "power",
+            "top_speed",
+            "acceleration",
+            "gearbox",
+            "engine_capacity",
+            "fuel_tank_capacity",
+            "transmission",
+            "traction",
+            "color",
+            "dimensions",
+            "trunk_capacity",
+            "warranty",
+            "previous_owners",
+            "service_history",
+            "condition",
+            "price",
+            "description"
         ];
-        
+
         $values = [];
         foreach ($fields as $field) {
             if (!isset($_POST[$field]) || trim($_POST[$field]) === '') {
@@ -41,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($errors)) {
             $values[] = $id;
-            
+
             // Atualizar informações do carro
             $stmt = $pdo->prepare("UPDATE cars SET 
                 brand = ?, model = ?, registration_year = ?, mileage = ?, seats = ?, doors = ?, fuel_type = ?, 
@@ -90,34 +112,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Carro</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/edit_car.css">
 </head>
+
 <body>
     <h1>Editar Carro</h1>
-    
-    <?php if (!empty($errors)) : ?>
+
+    <?php if (!empty($errors)): ?>
         <div style="color: red; font-weight: bold;">
             <p>⚠️ Preencha todos os campos obrigatórios antes de continuar:</p>
             <ul>
-                <?php foreach ($errors as $error) : ?>
+                <?php foreach ($errors as $error): ?>
                     <li><?= htmlspecialchars($error) ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
     <?php endif; ?>
-    
+
     <form action="edit_car.php?id=<?= $id ?>" method="post" enctype="multipart/form-data">
         <input type="text" name="brand" placeholder="Marca" value="<?= htmlspecialchars($car['brand']) ?>" required>
         <input type="text" name="model" placeholder="Modelo" value="<?= htmlspecialchars($car['model']) ?>" required>
-        <input type="number" name="registration_year" placeholder="Ano de Registo" value="<?= htmlspecialchars($car['registration_year']) ?>" required>
-        <input type="number" name="mileage" placeholder="Quilometragem" value="<?= htmlspecialchars($car['mileage']) ?>" required>
-        <input type="text" name="gearbox" placeholder="Caixa de Velocidades" value="<?= htmlspecialchars($car['gearbox']) ?>" required>
-        <input type="text" name="engine_capacity" placeholder="Capacidade do Motor (cc)" value="<?= htmlspecialchars($car['engine_capacity']) ?>" required>
-        <input type="text" name="fuel_tank_capacity" placeholder="Capacidade do Tanque (L)" value="<?= htmlspecialchars($car['fuel_tank_capacity']) ?>" required>
+        <input type="number" name="registration_year" placeholder="Ano de Registo"
+            value="<?= htmlspecialchars($car['registration_year']) ?>" required>
+        <input type="number" name="mileage" placeholder="Quilometragem" value="<?= htmlspecialchars($car['mileage']) ?>"
+            required>
+        <input type="text" name="gearbox" placeholder="Caixa de Velocidades"
+            value="<?= htmlspecialchars($car['gearbox']) ?>" required>
+        <input type="text" name="engine_capacity" placeholder="Capacidade do Motor (cc)"
+            value="<?= htmlspecialchars($car['engine_capacity']) ?>" required>
+        <input type="text" name="fuel_tank_capacity" placeholder="Capacidade do Tanque (L)"
+            value="<?= htmlspecialchars($car['fuel_tank_capacity']) ?>" required>
         <select name="fuel_type" required>
             <option value="Gasolina" <?= $car['fuel_type'] == 'Gasolina' ? 'selected' : '' ?>>Gasolina</option>
             <option value="GPL" <?= $car['fuel_type'] == 'GPL' ? 'selected' : '' ?>>GPL</option>
@@ -133,10 +162,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Usado" <?= $car['condition'] == 'Usado' ? 'selected' : '' ?>>Usado</option>
             <option value="Semi-novo" <?= $car['condition'] == 'Semi-novo' ? 'selected' : '' ?>>Semi-novo</option>
         </select>
-        <input type="number" step="0.01" name="price" placeholder="Preço (€)" value="<?= htmlspecialchars($car['price']) ?>" required>
-        <textarea name="description" placeholder="Descrição do Carro" required><?= htmlspecialchars($car['description']) ?></textarea>
+        <input type="number" name="seats" placeholder="Lugares" value="<?= htmlspecialchars($car['seats']) ?>" required>
+        <input type="number" name="doors" placeholder="Portas" value="<?= htmlspecialchars($car['doors']) ?>" required>
+        <input type="text" name="fuel_consumption" placeholder="Consumo de Combustível (L/100km)"
+            value="<?= htmlspecialchars($car['fuel_consumption']) ?>" required>
+        <input type="text" name="co2_emissions" placeholder="Emissões CO2 (g/km)"
+            value="<?= htmlspecialchars($car['co2_emissions']) ?>" required>
+        <input type="text" name="power" placeholder="Potência (cv)" value="<?= htmlspecialchars($car['power']) ?>"
+            required>
+        <input type="text" name="top_speed" placeholder="Velocidade Máxima (km/h)"
+            value="<?= htmlspecialchars($car['top_speed']) ?>" required>
+        <input type="text" name="acceleration" placeholder="Aceleração 0-100 km/h (s)"
+            value="<?= htmlspecialchars($car['acceleration']) ?>" required>
+        <input type="text" name="transmission" placeholder="Transmissão"
+            value="<?= htmlspecialchars($car['transmission']) ?>" required>
+        <input type="text" name="traction" placeholder="Tração" value="<?= htmlspecialchars($car['traction']) ?>"
+            required>
+        <input type="text" name="color" placeholder="Cor" value="<?= htmlspecialchars($car['color']) ?>" required>
+        <input type="text" name="dimensions" placeholder="Dimensões (CxLxA)"
+            value="<?= htmlspecialchars($car['dimensions']) ?>" required>
+        <input type="text" name="trunk_capacity" placeholder="Capacidade da Bagageira (L)"
+            value="<?= htmlspecialchars($car['trunk_capacity']) ?>" required>
+        <input type="text" name="warranty" placeholder="Garantia" value="<?= htmlspecialchars($car['warranty']) ?>"
+            required>
+        <input type="number" name="previous_owners" placeholder="Número de Donos Anteriores"
+            value="<?= htmlspecialchars($car['previous_owners']) ?>" required>
+
+        <input type="number" step="0.01" name="price" placeholder="Preço (€)"
+            value="<?= htmlspecialchars($car['price']) ?>" required>
+        <textarea name="description" placeholder="Descrição do Carro"
+            required><?= htmlspecialchars($car['description']) ?></textarea>
         <input type="file" name="image" accept="image/*">
         <button type="submit">Salvar Alterações</button>
+        <a href="dashboard.php" class="btn-cancel">Cancelar</a>
     </form>
 </body>
+
 </html>

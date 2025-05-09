@@ -37,12 +37,11 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container">
         <header>
             <h1>Gestão de Viaturas</h1>
-            <a href="../assets/php/logout.php" class="logout-btn">Logout</a>
         </header>
 
         <section class="dashboard">
             <h2>Lista de Carros</h2>
-            <button href="add_car.php" class="add-btn">Adicionar Novo Carro</button>
+            <a class="button" href="add_car.php" class="add-btn">Adicionar Novo Carro</a>
             <table>
                 <thead>
                     <tr>

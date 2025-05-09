@@ -1,7 +1,8 @@
 :root {
-    --azul: #007bff;
+    --primary-color: #1b568e;
     --text: #EDF0F7;
-    --red: #dc3545;
+    --error: #dc3545;
+    --error-hover: #b10012;
     --sidebar-gray-light: #F8F7FD;
     --sidebar-gray-background: #4a4a4a;
     --success: #00C896;
@@ -9,7 +10,7 @@
 }q
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Poppins, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -33,28 +34,13 @@ body.collapsed .container {
 
 /* Cabeçalho */
 .header {
-    background-color: var(--azul);
+    background-color: var(--primary-color);
     color: white;
     padding: 15px;
     text-align: center;
     font-size: 22px;
     font-weight: bold;
     border-radius: 12px 12px 0 0;
-}
-
-/* Botão de logout */
-.logout-btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: var(--red);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.logout-btn:hover {
-    background-color: #b10012;
 }
 
 /* Tabela de carros */
@@ -78,7 +64,7 @@ th, td {
 }
 
 th {
-    background-color: var(--azul);
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -102,7 +88,7 @@ tr:hover {
 
 .edit-btn {
     width: 100px;
-    background-color: var(--azul);
+    background-color: var(--primary-color);
 }
 
 .edit-btn:hover {
@@ -111,7 +97,7 @@ tr:hover {
 
 .delete-btn {
     width: 100px;
-    background-color: var(--red);
+    background-color: var(--error);
 }
 
 .delete-btn:hover {
@@ -159,13 +145,13 @@ button:hover {
     text-align: center;
     margin-top: 20px;
     padding: 15px;
-    background-color: var(--azul);
+    background-color: var(--primary-color);
     color: white;
     border-radius: 0 0 12px 12px;
 }
 
 .car-link {
-    color: var(--azul);
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -200,7 +186,7 @@ button:hover {
 
 
 .car-form .form-btn {
-    background-color: var(--azul);
+    background-color: var(--primary-color);
     color: white;
     border: none;
     cursor: pointer;

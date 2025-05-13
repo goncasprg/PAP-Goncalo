@@ -5,7 +5,7 @@ Este repositório contém o projeto desenvolvido para a minha Prova de Aptidão 
 
 ## 📌 Sobre o Projeto
 
-O CarChoice é um stand automóvel virtual para compra e aluguer de veículos, criado com o objetivo de proporcionar uma plataforma intuitiva e eficiente onde os utilizadores podem explorar automóveis disponíveis e contactar os vendedores.
+O CarChoice é um stand automóvel virtual para compra de veículos, criado com o objetivo de proporcionar uma plataforma intuitiva e eficiente onde os utilizadores podem explorar automóveis disponíveis e contactar os vendedores.
 
 
 ## 🚀 Tecnologias Utilizadas

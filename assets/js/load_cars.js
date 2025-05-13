@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             data.forEach(car => {
-                const imageUrl = car.image_url ? car.image_url : 'assets/images/carros/default-car.jpg';
+                const imageUrl = car.image_url ? `/PAP-Goncalo/${car.image_url}` : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
 
                 const card = document.createElement("div");
                 card.classList.add("card");
@@ -27,17 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="card-info">
                         <p class="text-title">${car.brand} ${car.model}</p>
                         <p class="text-body">${car.engine_capacity}L ${car.fuel_type}</p>
-
                         <div class="car-details">
                             <span><i class="fas fa-calendar-alt"></i> ${car.registration_year}</span>
                             <span><i class="fas fa-road"></i> ${car.mileage} km</span>
                             <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
                         </div>
-
                         <p class="price-text">Preço</p>
                         <p class="text-price">${car.price}€</p>
                     </div>
-                    <button class="card-button">Saber mais</button>
+                    <button class="card-button" onclick="window.location.href='/PAP-Goncalo/assets/html/car_details.php?id=${car.id}'">Saber mais</button>
                 `;
 
                 container.appendChild(card);

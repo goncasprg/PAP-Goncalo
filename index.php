@@ -271,7 +271,7 @@ if (isset($notification)) {
 
         <div class="titulos-avaliar">
             <h1 class="titulo-avaliar">Também queremos a tua opinião!</h1>
-            <h2 class="sub-avaliar">O que tens a dizer do nosso serviço?</h2>
+            <h1 class="sub-avaliar">O que tens a dizer do nosso serviço?</h1>
         </div>
         <!-- Formulário de Avaliação -->
         <form class="review-form" action="assets/php/reviews.php" method="POST">

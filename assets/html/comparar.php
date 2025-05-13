@@ -20,7 +20,7 @@ $allCars = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparação de Carros</title>
     <link rel="stylesheet" href="../css/comparar.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
     <style>
         .car-option {
             display: flex;
@@ -42,6 +42,7 @@ $allCars = $stmt->fetchAll();
         }
     </style>
 </head>
+
 <body>
     <?php include("header.php"); ?>
     <h1>Comparação de Carros</h1>
@@ -52,46 +53,47 @@ $allCars = $stmt->fetchAll();
         <select name="car1" id="car1" required>
             <option value="" disabled selected>Selecione um carro</option>
             <?php foreach ($allCars as $car): ?>
-                <?php 
-                    // Caminho da imagem
-                    $imageUrl = !empty($car['image_url']) ? '../assets/images/carros/' . htmlspecialchars($car['image_url']) : '../assets/images/carros/default-car.jpg';
+                <?php
+                // Caminho da imagem com o padrão do projeto
+                $imageUrl = !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
                 ?>
                 <option value="<?php echo $car['id']; ?>" data-image="<?php echo $imageUrl; ?>">
                     <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
                 </option>
             <?php endforeach; ?>
         </select>
-        <img id="car1-image" src="" alt="Imagem do carro" style="width:100px; height:60px; margin-top: 10px;">
+        <img id="car1-image" src="" alt="Imagem do carro" style="width:420px; height:250px; margin-top: 10px;">
 
         <label for="car2">Escolha o segundo carro:</label>
         <select name="car2" id="car2" required>
             <option value="" disabled selected>Selecione um carro</option>
             <?php foreach ($allCars as $car): ?>
-                <?php 
-                    $imageUrl = !empty($car['image_url']) ? '../' . htmlspecialchars($car['image_url']) : '../assets/images/carros/default-car.jpg';
-                    $imageUrl = !empty($car['image_url']) ? '../assets/images/carros/' . htmlspecialchars($car['image_url']) : '../assets/images/carros/default-car.jpg';
+                <?php
+                // Mesmo caminho para o segundo select
+                $imageUrl = !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
                 ?>
                 <option value="<?php echo $car['id']; ?>" data-image="<?php echo $imageUrl; ?>">
                     <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
                 </option>
             <?php endforeach; ?>
         </select>
-        <img id="car2-image" src="" alt="Imagem do carro" style="width:100px; height:60px; margin-top: 10px;">
+        <img id="car2-image" src="" alt="Imagem do carro" style="width:420px; height:250px; margin-top: 10px;">
 
         <button type="submit">Comparar</button>
     </form>
 
     <script>
         // Atualizar imagem ao selecionar um carro
-        document.getElementById('car1').addEventListener('change', function() {
+        document.getElementById('car1').addEventListener('change', function () {
             let selectedOption = this.options[this.selectedIndex];
             document.getElementById('car1-image').src = selectedOption.getAttribute('data-image');
         });
 
-        document.getElementById('car2').addEventListener('change', function() {
+        document.getElementById('car2').addEventListener('change', function () {
             let selectedOption = this.options[this.selectedIndex];
             document.getElementById('car2-image').src = selectedOption.getAttribute('data-image');
         });
     </script>
 </body>
+
 </html>

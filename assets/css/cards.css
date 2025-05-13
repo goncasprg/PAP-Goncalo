@@ -7,10 +7,10 @@
 .cards-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); /* Fixa a largura dos cards */
     gap: 20px;
     padding: 20px;
-    justify-content: center;
+    justify-content: center; /* Centraliza os cards */
 }
 
 .txt-destaque {

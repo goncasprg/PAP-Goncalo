@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="/PAP-Goncalo/css/footer.css">
-
 <div class="footer-basic">
     <div class="footer-container">
         <div class="logo-section">

@@ -20,6 +20,7 @@ $allCars = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparação de Carros</title>
     <link rel="stylesheet" href="../css/comparar.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .car-option {
             display: flex;

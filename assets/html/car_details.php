@@ -44,9 +44,13 @@ if (empty($images)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vehicle Details - <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></title>
   <link rel="stylesheet" href="../css/car_details.css">
+  <link rel="stylesheet" href="../css/footer.css"> <!-- Adicionado CSS do footer -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/css/header.css">
 </head>
 <body>
+  <!-- Header -->
+  <?php include("../html/header.php"); ?>
 
 <div class="container">
   <!-- Car + Info + Form -->
@@ -243,6 +247,9 @@ if (empty($images)) {
   <button class="next" onclick="zoomSlide(1)">❯</button>
 </div>
 
+<!-- Footer -->
+<!-- <?php include("../html/footer.php"); ?> -->
+
 <script>
   const images = document.querySelectorAll('.carousel-image');
   let current = 0;
@@ -281,6 +288,5 @@ if (empty($images)) {
     thumb.addEventListener('click', () => selectImage(index));
   });
 </script>
-
 </body>
 </html>

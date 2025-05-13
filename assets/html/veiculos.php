@@ -13,7 +13,7 @@ session_start();
     <link rel="stylesheet" href="../../assets/css/cards.css">
     <link rel="stylesheet" href="../../assets/css/footer.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/viaturas.css"> <!-- Novo arquivo CSS -->
+    <link rel="stylesheet" href="../../assets/css/veiculos.css"> <!-- Novo arquivo CSS -->
     <link rel="icon" type="image/x-icon" href="../../assets/images/carchoicedrk.png">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="../../assets/js/load_cars.js" defer></script>
@@ -24,7 +24,6 @@ session_start();
     <!-- Header -->
     <?php include("../../assets/html/header.php"); ?>
 
-    <!-- Main Content -->
     <main class="main">
         <!-- Filtros -->
         <section class="filters-section">
@@ -64,7 +63,7 @@ session_start();
             </form>
         </section>
 
-        <!-- Cards de Viaturas -->
+        <!-- Cards das Viaturas -->
         <section class="cards-section">
             <h1 class="txt-destaque">Viaturas do Stand</h1>
             <div id="cards-container" class="cards-container"></div>
@@ -74,90 +73,114 @@ session_start();
     <!-- Footer -->
     <?php include("../../assets/html/footer.php"); ?>
 
-    <script>
-        // Carregar modelos dinamicamente com base na marca
-        // Aplicar filtros e recarregar cards
-// Aplicar filtros e recarregar cards
-document.getElementById('filter-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const brandSelect = document.getElementById('brand');
-    const modelSelect = document.getElementById('model');
-    const transmission = document.getElementById('transmission').value;
+<script>
+    // Função para obter parâmetros da URL
+    function getParameterByName(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
 
-    const brand = brandSelect.options[brandSelect.selectedIndex].text;
-    const model = modelSelect.options[modelSelect.selectedIndex].text;
+    // Carregar carros com base nos filtros da URL
+    window.addEventListener('load', function () {
+        const brand = getParameterByName('brand');
+        const model = getParameterByName('model');
+        const transmission = getParameterByName('transmission');
 
-    fetch('../../assets/php/get_cars.php?brand=' + encodeURIComponent(brand) + '&model=' + encodeURIComponent(model) + '&transmission=' + encodeURIComponent(transmission))
-        .then(response => response.json())
-        .then(data => {
-            const container = document.getElementById('cards-container');
-            container.innerHTML = '';
-            if (data.error) {
-                console.error('Erro ao carregar os carros:', data.error);
-                return;
-            }
-            data.forEach(car => {
-                // Adiciona o prefixo /PAP-Goncalo/ ao image_url
-                const imageUrl = car.image_url ? `/PAP-Goncalo/${car.image_url}` : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
-                const card = document.createElement('div');
-                card.classList.add('card');
-                card.innerHTML = `
-                    <div class="card-img" style="background-image: url('${imageUrl}');"></div>
-                    <div class="card-info">
-                        <p class="text-title">${car.brand} ${car.model}</p>
-                        <p class="text-body">${car.engine_capacity}L ${car.fuel_type}</p>
-                        <div class="car-details">
-                            <span><i class="fas fa-calendar-alt"></i> ${car.registration_year}</span>
-                            <span><i class="fas fa-road"></i> ${car.mileage} km</span>
-                            <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
+        let url = '../../assets/php/get_cars.php';
+        const params = new URLSearchParams();
+        if (brand) params.append('brand', brand);
+        if (model) params.append('model', model);
+        if (transmission) params.append('transmission', transmission);
+
+        if (params.toString()) {
+            url += '?' + params.toString();
+        }
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('cards-container');
+                container.innerHTML = '';
+                if (data.error) {
+                    console.error('Erro ao carregar os carros:', data.error);
+                    return;
+                }
+                if (data.length === 0) {
+                    container.innerHTML = '<p class="txt-destaque" style="text-align: center;">Nenhum carro encontrado com os filtros selecionados.</p>';
+                    return;
+                }
+                data.forEach(car => {
+                    const imageUrl = car.image_url ? `/PAP-Goncalo/${car.image_url}` : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML = `
+                        <div class="card-img" style="background-image: url('${imageUrl}');"></div>
+                        <div class="card-info">
+                            <p class="text-title">${car.brand} ${car.model}</p>
+                            <p class="text-body">${car.engine_capacity}L ${car.fuel_type}</p>
+                            <div class="car-details">
+                                <span><i class="fas fa-calendar-alt"></i> ${car.registration_year}</span>
+                                <span><i class="fas fa-road"></i> ${car.mileage} km</span>
+                                <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
+                            </div>
+                            <p class="price-text">Preço</p>
+                            <p class="text-price">${car.price}€</p>
                         </div>
-                        <p class="price-text">Preço</p>
-                        <p class="text-price">${car.price}€</p>
-                    </div>
-                    <button class="card-button" onclick="window.location.href='/PAP-Goncalo/assets/html/car_details.php?id=${car.id}'">Saber mais</button>
-                `;
-                container.appendChild(card);
-            });
-        })
-        .catch(error => console.error('Erro ao carregar os carros:', error));
-});
+                        <button class="card-button" onclick="window.location.href='/PAP-Goncalo/assets/html/car_details.php?id=${car.id}'">Saber mais</button>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Erro ao carregar os carros:', error));
+    });
 
-// Carregar cards iniciais sem filtros
-window.addEventListener('load', function () {
-    fetch('../../assets/php/get_cars.php')
-        .then(response => response.json())
-        .then(data => {
-            const container = document.getElementById('cards-container');
-            container.innerHTML = '';
-            if (data.error) {
-                console.error('Erro ao carregar os carros:', data.error);
-                return;
-            }
-            data.forEach(car => {
-                // Adiciona o prefixo /PAP-Goncalo/ ao image_url
-                const imageUrl = car.image_url ? `/PAP-Goncalo/${car.image_url}` : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
-                const card = document.createElement('div');
-                card.classList.add('card');
-                card.innerHTML = `
-                    <div class="card-img" style="background-image: url('${imageUrl}');"></div>
-                    <div class="card-info">
-                        <p class="text-title">${car.brand} ${car.model}</p>
-                        <p class="text-body">${car.engine_capacity}L ${car.fuel_type}</p>
-                        <div class="car-details">
-                            <span><i class="fas fa-calendar-alt"></i> ${car.registration_year}</span>
-                            <span><i class="fas fa-road"></i> ${car.mileage} km</span>
-                            <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
+    // Evento de filtragem manual
+    document.getElementById('filter-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const brandSelect = document.getElementById('brand');
+        const modelSelect = document.getElementById('model');
+        const transmission = document.getElementById('transmission').value;
+
+        const brand = brandSelect.options[brandSelect.selectedIndex].text;
+        const model = modelSelect.options[modelSelect.selectedIndex].text;
+
+        fetch('../../assets/php/get_cars.php?brand=' + encodeURIComponent(brand) + '&model=' + encodeURIComponent(model) + '&transmission=' + encodeURIComponent(transmission))
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('cards-container');
+                container.innerHTML = '';
+                if (data.error) {
+                    console.error('Erro ao carregar os carros:', data.error);
+                    return;
+                }
+                if (data.length === 0) {
+                    container.innerHTML = '<p class="txt-destaque" style="text-align: center;">Nenhum carro encontrado com os filtros selecionados.</p>';
+                    return;
+                }
+                data.forEach(car => {
+                    const imageUrl = car.image_url ? `/PAP-Goncalo/${car.image_url}` : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML = `
+                        <div class="card-img" style="background-image: url('${imageUrl}');"></div>
+                        <div class="card-info">
+                            <p class="text-title">${car.brand} ${car.model}</p>
+                            <p class="text-body">${car.engine_capacity}L ${car.fuel_type}</p>
+                            <div class="car-details">
+                                <span><i class="fas fa-calendar-alt"></i> ${car.registration_year}</span>
+                                <span><i class="fas fa-road"></i> ${car.mileage} km</span>
+                                <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
+                            </div>
+                            <p class="price-text">Preço</p>
+                            <p class="text-price">${car.price}€</p>
                         </div>
-                        <p class="price-text">Preço</p>
-                        <p class="text-price">${car.price}€</p>
-                    </div>
-                    <button class="card-button" onclick="window.location.href='/PAP-Goncalo/assets/html/car_details.php?id=${car.id}'">Saber mais</button>
-                `;
-                container.appendChild(card);
-            });
-        })
-        .catch(error => console.error('Erro ao carregar os carros:', error));
-});
-    </script>
+                        <button class="card-button" onclick="window.location.href='/PAP-Goncalo/assets/html/car_details.php?id=${car.id}'">Saber mais</button>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Erro ao carregar os carros:', error));
+    });
+</script>
 </body>
 </html>

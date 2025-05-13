@@ -1,4 +1,10 @@
-/* Estilos do Header */
+:root {
+    --header-height: 90px;
+    --header--color: #1a1a1a;
+    --header-color-sticky: #0d0d0d;
+    --header--color-hover: #333333;
+    --header-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 .header {
     display: flex;
     align-items: center;
@@ -9,20 +15,29 @@
     width: 100%;
     height: 90px;
     padding: 10px 10%;
-    background: #00000022;
     border-bottom: 1px solid #ffffff31;
     transition: all 0.3s;
     z-index: 1000;
 }
 
-#header.sticky {
-    background: #151515;
+.header-index {
+    background: var(--header--color);
+}
+
+.header-other {
+    background: var(--header--color); 
+}
+
+.header-index.sticky {
+    background: var(--header-color-sticky);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.header:hover {
-    background: #000000aa;
+.header-other.sticky {
+    background: var(--header-color-sticky);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Logo */
 .nav-logo {
@@ -53,7 +68,10 @@
     transition: color 0.3s ease-in-out;
 }
 
-/* Efeito de linha ao passar o rato nas tabs do header */
+.header .nav-link {
+    color: #fff;
+}
+
 .nav-link::after {
     content: "";
     position: absolute;

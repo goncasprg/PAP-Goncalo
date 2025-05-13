@@ -54,100 +54,12 @@ if (isset($notification)) {
     <link rel="stylesheet" href="./assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/contactar.css" />
+    <link rel="stylesheet" href="./assets/css/notifications.css">
     <link rel="icon" type="image/x-icon" href="./assets/images/carchoicedrk.png" />
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="assets/js/load_cars.js"></script>
     <title>CarChoice - Stand Automóvel</title>
-    <style>
-        .notifications-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 999;
-            width: 320px;
-            height: auto;
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
 
-        .flex {
-            display: flex;
-        }
-
-        .flex-shrink-0 {
-            flex-shrink: 0;
-        }
-
-        .success {
-            padding: 1rem;
-            border-radius: 0.375rem;
-            background-color: rgb(240 253 244);
-        }
-
-        .succes-svg {
-            color: rgb(74 222 128);
-            width: 1.25rem;
-            height: 1.25rem;
-        }
-
-        .success-prompt-wrap {
-            margin-left: 0.75rem;
-        }
-
-        .success-prompt-heading {
-            font-weight: bold;
-            color: rgb(22 101 52);
-        }
-
-        .success-prompt-prompt {
-            margin-top: 0.5rem;
-            color: rgb(21 128 61);
-        }
-
-        .success-button-container {
-            display: flex;
-            margin-top: 0.875rem;
-            margin-bottom: -0.375rem;
-            margin-left: -0.5rem;
-            margin-right: -0.5rem;
-        }
-
-        .success-button-main {
-            padding-top: 0.375rem;
-            padding-bottom: 0.375rem;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-            background-color: #ECFDF5;
-            color: rgb(22 101 52);
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-            font-weight: bold;
-            border-radius: 0.375rem;
-            border: none
-        }
-
-        .success-button-main:hover {
-            background-color: #D1FAE5;
-        }
-
-        .success-button-secondary {
-            padding-top: 0.375rem;
-            padding-bottom: 0.375rem;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-            margin-left: 0.75rem;
-            background-color: #ECFDF5;
-            color: #065F46;
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-            border-radius: 0.375rem;
-            border: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -163,33 +75,32 @@ if (isset($notification)) {
             </div>
 
             <div class="banner-form-container">
-                <form action="api/veiculos.php" method="GET">
-                    <select name="brand" id="brand">
-                        <option value="">Selecione uma marca</option>
-                        <?php
-                        $sql = "SELECT * FROM brands ORDER BY brand ASC";
-                        $stmt = getPDO()->prepare($sql);
-                        $stmt->execute();
+    <form action="/PAP-Goncalo/assets/html/veiculos.php" method="GET">
+        <select name="brand" id="brand">
+            <option value="">Selecione uma marca</option>
+            <?php
+            $sql = "SELECT * FROM brands ORDER BY brand ASC";
+            $stmt = getPDO()->prepare($sql);
+            $stmt->execute();
+            while ($row = $stmt->fetch()) {
+                echo "<option value='" . htmlspecialchars($row['brand']) . "'>" . htmlspecialchars($row['brand']) . "</option>";
+            }
+            ?>
+        </select>
 
-                        while ($row = $stmt->fetch()) {
-                            echo "<option value='" . htmlspecialchars($row['id']) . "'>" . htmlspecialchars($row['brand']) . "</option>";
-                        }
-                        ?>
-                    </select>
+        <select name="model" id="model">
+            <option value="">Selecione um modelo</option>
+        </select>
 
-                    <select name="model" id="model">
-                        <option value="">Selecione um modelo</option>
-                    </select>
+        <select name="transmission">
+            <option value="">Transmissão</option>
+            <option value="Automática">Automática</option>
+            <option value="Manual">Manual</option>
+        </select>
 
-                    <select name="transmission">
-                        <option value="">Transmissão</option>
-                        <option value="Automática">Automática</option>
-                        <option value="Manual">Manual</option>
-                    </select>
-
-                    <input type="submit" value="Pesquisar" class="banner-button" />
-                </form>
-            </div>
+        <input type="submit" value="Pesquisar" class="banner-button" />
+    </form>
+</div>
         </div>
         <!-- Logo das marcas -->
         <section class="section-cards">
@@ -332,27 +243,27 @@ if (isset($notification)) {
     <!-- Script dos filtros -->
     <script src="./assets/js/script.js"></script>
     <script>
-        document.getElementById('brand').addEventListener('change', function () {
-            let brand = this.value;
-            let modelSelect = document.getElementById('model');
+    document.getElementById('brand').addEventListener('change', function () {
+        let brand = this.value; // Agora é o nome da marca
+        let modelSelect = document.getElementById('model');
 
-            modelSelect.innerHTML = '<option value="">Selecione um modelo</option>';
+        modelSelect.innerHTML = '<option value="">Selecione um modelo</option>';
 
-            if (brand) {
-                fetch('./admin/get_models.php?brand=' + encodeURIComponent(brand))
-                    .then(response => response.json())
-                    .then(data => {
-                        data.forEach(model => {
-                            let option = document.createElement('option');
-                            option.value = model.id;
-                            option.textContent = model.model;
-                            modelSelect.appendChild(option);
-                        });
-                    })
-                    .catch(error => console.error('Erro ao buscar modelos:', error));
-            }
-        });
-    </script>
+        if (brand) {
+            fetch('./admin/get_models.php?brand=' + encodeURIComponent(brand))
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(model => {
+                        let option = document.createElement('option');
+                        option.value = model.model; // Usa o nome do modelo como value
+                        option.textContent = model.model;
+                        modelSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar modelos:', error));
+        }
+    });
+</script>
 
 </body>
 

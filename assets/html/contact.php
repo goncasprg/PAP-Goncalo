@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/PAP-Goncalo/assets/css/contact.css">
+    <link rel="stylesheet" href="../../assets/css/header.css">
     <title>Contactar - CarChoice</title>
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include("../html/header.php"); ?>
 
     <div class="contact-container">
         <div class="contact-text">

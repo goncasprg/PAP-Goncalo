@@ -47,25 +47,6 @@
         </li>
       </ul>
     </div>
-    <div class="sidebar-bottom">
-      <div class="sidebar-links">
-        <ul>
-          <li>
-            <a href="#help" title="Help" class="tooltip">
-              <img src="../admin/assets/images/help.svg" alt="Help">
-              <span class="link hide">Help</span>
-              <span class="tooltip__content">Help</span>
-            </a>
-          </li>
-          <li>
-            <a href="#settings" title="Settings" class="tooltip">
-              <img src="../admin/assets/images/settings.svg" alt="Settings">
-              <span class="link hide">Settings</span>
-              <span class="tooltip__content">Settings</span>
-            </a>
-          </li>
-        </ul>
-      </div>
       <div class="sidebar__profile">
 
         <div class="avatar__name hide">

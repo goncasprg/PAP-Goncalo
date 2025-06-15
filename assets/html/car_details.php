@@ -48,6 +48,34 @@ if (empty($images)) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../../assets/css/header.css">
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch("https://formspree.io/f/meoepkze", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        }).then(response => {
+            if (response.ok) {
+                alert("Mensagem enviada com sucesso!");
+                window.location.href = "/PAP-Goncalo/index.php"; // Ajuste o caminho conforme necessário
+            } else {
+                alert("Erro ao enviar a mensagem. Tente novamente.");
+            }
+        }).catch(error => {
+            alert("Erro ao conectar com o servidor. Tente novamente.");
+        });
+    });
+});
+</script>
 <body>
   <!-- Header -->
   <?php include("../html/header.php"); ?>
@@ -83,19 +111,19 @@ if (empty($images)) {
       <p class="year-kms"><?php echo htmlspecialchars($car['registration_year'] . ' • ' . number_format($car['mileage'], 0, ',', '.') . ' km • ' . $car['fuel_type']); ?></p>
 
       <div class="form-box">
-        <p class="contact-text">Tem interesse? Entre em contacto!</p>
-        <form class="contact-form" action="../assets/php/contact_form.php" method="POST">
-          <input type="hidden" name="car_id" value="<?php echo $car_id; ?>">
-          <label for="name">Nome</label>
-          <input type="text" id="name" name="name" placeholder="Nome" required>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Email" required>
-          <label for="message">Mensagem</label>
-          <textarea id="message" name="message" rows="4" placeholder="Escreve aqui a mensagem" required></textarea>
-          <button type="submit" class="btn-submit">Enviar Mensagem</button>
-          <a href="https://wa.me/351912345678" class="btn-whatsapp" target="_blank">Contacto via WhatsApp</a>
-        </form>
-      </div>
+  <p class="contact-text">Tem interesse? Entre em contacto!</p>
+  <form class="contact-form" id="contact-form" method="POST">
+    <input type="hidden" name="car_id" value="<?php echo $car_id; ?>">
+    <label for="name">Nome</label>
+    <input type="text" id="name" name="name" placeholder="Nome" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    <label for="message">Mensagem</label>
+    <textarea id="message" name="message" rows="4" placeholder="Escreva aqui a mensagem" required></textarea>
+    <button type="submit" class="btn-submit">Enviar Mensagem</button>
+    <a href="https://wa.me/351966840321" class="btn-whatsapp" target="_blank">Contacto via WhatsApp</a>
+  </form>
+</div>
     </div>
   </div>
 

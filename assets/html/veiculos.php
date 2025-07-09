@@ -342,6 +342,7 @@ session_start();
                 .catch(error => console.error('Erro ao carregar os carros:', error));
         });
     </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>

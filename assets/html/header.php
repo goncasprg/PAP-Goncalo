@@ -7,6 +7,17 @@ if (session_status() === PHP_SESSION_NONE) {
 $headerClass = (basename($_SERVER['PHP_SELF']) === 'index.php') ? 'header-index' : 'header-other';
 ?>
 
+<div class="header-mobile">
+    <a href="/PAP-Goncalo/index.php" class="nav-logo-mobile">
+        <img src="/PAP-Goncalo/assets/images/carchoicedrk.png" alt="Logo CarChoice">
+    </a>
+    <div class="btn-open-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
 <header class="header <?php echo $headerClass; ?>" id="header">
     <a href="/PAP-Goncalo/index.php" class="nav-logo">
         <img src="/PAP-Goncalo/assets/images/carchoicedrk.png" alt="Logo CarChoice">
@@ -20,7 +31,11 @@ $headerClass = (basename($_SERVER['PHP_SELF']) === 'index.php') ? 'header-index'
             <li class="nav-item"><a href="/PAP-Goncalo/assets/html/contact.php" class="nav-link">Contactar</a></li>
         </ul>
     </nav>
-
+    
+    <div class="btn-close-menu">
+        <span></span>
+        <span></span>
+    </div>
     <?php if (isset($_SESSION["user_id"])): ?>
         <div class="user-menu">
             <span>Bem-vindo, <?php echo htmlspecialchars($_SESSION["user_name"]); ?>!</span>

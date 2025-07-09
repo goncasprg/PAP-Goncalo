@@ -45,39 +45,44 @@ $allCars = $stmt->fetchAll();
 
 <body>
     <?php include("header.php"); ?>
-    <h1>Comparação de Carros</h1>
+    <h1 style="margin-top: 200px;">Comparação de Carros</h1>
 
     <!-- Formulário para selecionar os carros -->
     <form action="comparar_resultados.php" method="GET">
-        <label for="car1">Escolha o primeiro carro:</label>
-        <select name="car1" id="car1" required>
-            <option value="" disabled selected>Selecione um carro</option>
-            <?php foreach ($allCars as $car): ?>
-                <?php
-                // Caminho da imagem com o padrão do projeto
-                $imageUrl = !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
-                ?>
-                <option value="<?php echo $car['id']; ?>" data-image="<?php echo $imageUrl; ?>">
-                    <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <img id="car1-image" src="" alt="Imagem do carro" style="width:420px; height:250px; margin-top: 10px;">
-
-        <label for="car2">Escolha o segundo carro:</label>
-        <select name="car2" id="car2" required>
-            <option value="" disabled selected>Selecione um carro</option>
-            <?php foreach ($allCars as $car): ?>
-                <?php
-                // Mesmo caminho para o segundo select
-                $imageUrl = !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
-                ?>
-                <option value="<?php echo $car['id']; ?>" data-image="<?php echo $imageUrl; ?>">
-                    <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <img id="car2-image" src="" alt="Imagem do carro" style="width:420px; height:250px; margin-top: 10px;">
+        <div class="row">
+            <div>
+                <label for="car1">Escolha o primeiro carro:</label>
+                <select name="car1" id="car1" required>
+                    <option value="" disabled selected>Selecione um carro</option>
+                    <?php foreach ($allCars as $car): ?>
+                        <?php
+                        // Caminho da imagem com o padrão do projeto
+                        $imageUrl = !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
+                        ?>
+                        <option value="<?php echo $car['id']; ?>" data-image="<?php echo $imageUrl; ?>">
+                            <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <img id="car1-image" src="" alt="Imagem do carro" style=" margin-top: 10px;">
+            </div>
+            <div>
+                <label for="car2">Escolha o segundo carro:</label>
+                <select name="car2" id="car2" required>
+                    <option value="" disabled selected>Selecione um carro</option>
+                    <?php foreach ($allCars as $car): ?>
+                        <?php
+                        // Mesmo caminho para o segundo select
+                        $imageUrl = !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg';
+                        ?>
+                        <option value="<?php echo $car['id']; ?>" data-image="<?php echo $imageUrl; ?>">
+                            <?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <img id="car2-image" src="" alt="Imagem do carro" style="margin-top: 10px;">
+            </div>
+        </div>
 
         <button type="submit">Comparar</button>
     </form>
@@ -94,6 +99,7 @@ $allCars = $stmt->fetchAll();
             document.getElementById('car2-image').src = selectedOption.getAttribute('data-image');
         });
     </script>
+    <script src="../../assets/js/script.js"></script>
 </body>
 
 </html>

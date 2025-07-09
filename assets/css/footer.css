@@ -111,3 +111,19 @@
   font-size: 15px;
   color: #bbb;
 }
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .links-section {
+    text-align: center;
+  }
+  .links-section ul {
+    margin-top: 20px;
+  }
+  .links-section ul li {
+    margin-top: 10px;
+  }
+}

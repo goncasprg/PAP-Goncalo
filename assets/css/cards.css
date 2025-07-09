@@ -1,7 +1,7 @@
 
 .section-cards {
-    padding-left: 9em;
-    padding-right: 9em;
+    padding-left: 6em;
+    padding-right: 6em;
 }
 
 .cards-container {
@@ -120,4 +120,9 @@
 .card-button:hover {
     background-color: #555;
     transform: scale(1.02);
+}
+@media (max-width: 1200px) {
+    .section-cards {
+        padding: 0;
+    }
 }

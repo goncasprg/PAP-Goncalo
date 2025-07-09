@@ -7,6 +7,7 @@
     padding: 0.5%;
     background: url('../images/contactar_fundo.jpg') no-repeat top /cover;
     position: relative;
+    flex-direction: column;
 }
 
 .banner-box {
@@ -15,10 +16,8 @@
     gap: 30px;
     color: #fff;
     text-align: center;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
+    
+    
     width: 100%;
     max-width: 1000px;
 }
@@ -34,10 +33,6 @@
 }
 
 .banner-form-container {
-    position: absolute;
-    top: 45%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
     max-width: 790px;
 }
@@ -76,4 +71,10 @@
     cursor: pointer;
     font-size: 1em;
     font-weight: 500;
+}
+@media (max-width: 600px) {
+    .banner-form-container form{
+        flex-direction: column;
+        width: 90%;
+    }
 }

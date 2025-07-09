@@ -316,5 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
     thumb.addEventListener('click', () => selectImage(index));
   });
 </script>
+<script src="../../assets/js/script.js"></script>
 </body>
 </html>

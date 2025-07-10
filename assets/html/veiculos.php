@@ -135,7 +135,7 @@ session_start();
                     </div>
                 </div>
 
-                <button type="submit" class="filter-button">Filtrar</button>
+                <button type="submit" class="filter-button">Pesquisar</button>
             </form>
         </section>
 

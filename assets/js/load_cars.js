@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
                         </div>
                         <p class="price-text">Preço</p>
-                        <p class="text-price">${car.price}€</p>
+                        <p class="text-price">${Number(car.price).toLocaleString('pt-PT', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}€</p>
                     </div>
                     <button class="card-button" onclick="window.location.href='/PAP-Goncalo/assets/html/car_details.php?id=${car.id}'">Saber mais</button>
                 `;
@@ -43,3 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Erro ao carregar os carros:", error));
 });
+
+function updateCompareUI() {
+    const list = getCompareList();
+    if (list.includes(carId)) {
+        compareBtn.textContent = 'Remover do comparar';
+        goToCompare.style.display = 'inline';
+    } else {
+        compareBtn.textContent = 'Adicionar ao comparar';
+        goToCompare.style.display = list.length > 0 ? 'inline' : 'none';
+    }
+    compareCount.textContent = list.length;
+}

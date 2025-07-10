@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="details">
       <div class="title-price">
         <h1><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model'] . ' ' . $car['engine_capacity']); ?></h1>
-        <p class="price"><?php echo number_format($car['price'], 2, ',', '.') . ' €'; ?></p>
+        <p class="price"><?php echo number_format($car['price'], 0, ',', '.') . ' €'; ?></p>
       </div>
       <p class="year-kms"><?php echo htmlspecialchars($car['registration_year'] . ' • ' . number_format($car['mileage'], 0, ',', '.') . ' km • ' . $car['fuel_type']); ?></p>
 

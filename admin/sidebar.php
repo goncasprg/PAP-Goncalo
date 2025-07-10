@@ -13,7 +13,7 @@
   <nav>
     <div class="sidebar-top">
       <a href="#" class="logo__wrapper">
-        <img src="../admin/assets/images/logo.svg" alt="Logo" class="logo">
+        
         <h1 class="hide">CarChoice</h1>
       </a>
       <div class="expand-btn">
@@ -29,20 +29,7 @@
             <span class="tooltip__content">Gestão de Viaturas</span>
           </a>
         </li>
-        <li>
-          <a href="#project" title="Project" class="tooltip">
-            <img src="../admin/assets/images/analytics.svg" alt="Analytics">
-            <span class="link hide">Veículos</span>
-            <span class="tooltip__content">Veículos</span>
-          </a>
-        </li>
-        <li>
-          <a href="#performance" title="Performance" class="tooltip">
-            <img src="../admin/assets/images/performance.svg" alt="Performance">
-            <span class="link hide">Anúncios Pendentes</span>
-            <span class="tooltip__content">Performance</span>
-          </a>
-        </li>
+
         <li>
         </li>
       </ul>

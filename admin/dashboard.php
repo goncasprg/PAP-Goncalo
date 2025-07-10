@@ -9,30 +9,27 @@ if (!isset($_SESSION["user_role"]) || $_SESSION["user_role"] !== "admin") {
     exit();
 }
 
-// Buscar os carros na base de dados
+// Buscar os carros na base de dados com apenas uma imagem associada
 $pdo = getPDO();
 $stmt = $pdo->query("
-    SELECT c.*, ci.image_url 
+    SELECT c.*, 
+           (SELECT image_url FROM car_images WHERE car_id = c.id LIMIT 1) AS image_url
     FROM cars c
-    LEFT JOIN car_images ci ON c.id = ci.car_id
 ");
 $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="../admin/assets/css/sidebar.css">
-    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="stylesheet" href="/PAP-Goncalo/admin/assets/css/sidebar.css">
+    <link rel="stylesheet" href="/PAP-Goncalo/admin/assets/css/admin.css">
 </head>
-
 <body>
-
-    <?php include 'sidebar.php'; ?> <!-- Sidebar agora está incluída aqui -->
+    <?php include 'sidebar.php'; ?>
 
     <div class="container">
         <header>
@@ -42,46 +39,49 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <section class="dashboard">
             <h2>Lista de Carros</h2>
             <a class="button" href="add_car.php" class="add-btn">Adicionar Novo Carro</a>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Imagem</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Ano</th>
-                        <th>Preço</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($cars as $car): ?>
-                        <tr class="clickable-row" data-href="car_details.php?id=<?= $car['id'] ?>">
-
-                            <td><img src="../<?= htmlspecialchars($car['image_url']) ?>" alt="Imagem do Carro" width="100">
-                            </td>
-                            <td><?= htmlspecialchars($car['brand']) ?></td>
-                            <td><?= htmlspecialchars($car['model']) ?></td>
-                            <td><?= htmlspecialchars($car['registration_year']) ?></td>
-                            <td><?= number_format($car['price'], 2, ',', '.') ?>€</td>
-                            <td>
-                                <form action="edit_car.php" method="get" style="display:inline;">
-                                    <input type="hidden" name="id" value="<?= $car['id'] ?>">
-                                    <button type="submit" class="edit-btn">Editar</button>
-                                </form>
-                                <form action="delete_car.php" method="get" style="display:inline;"
-                                    onsubmit="return confirm('Tem certeza que deseja remover este carro?')">
-                                    <input type="hidden" name="id" value="<?= $car['id'] ?>">
-                                    <button type="submit" class="delete-btn">Remover</button>
-                                </form>
-                            </td>
+            <?php if (empty($cars)): ?>
+                <p>Nenhum carro encontrado.</p>
+            <?php else: ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Ano</th>
+                            <th>Preço</th>
+                            <th>Ações</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($cars as $car): ?>
+                            <tr class="clickable-row" data-href="car_details.php?id=<?= htmlspecialchars($car['id']) ?>">
+                                <td>
+                                    <img src="<?php echo !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg'; ?>" alt="Imagem do Carro" width="100">
+                                </td>
+                                <td><?= htmlspecialchars($car['brand']) ?></td>
+                                <td><?= htmlspecialchars($car['model']) ?></td>
+                                <td><?= htmlspecialchars($car['registration_year']) ?></td>
+                                <td><?= number_format($car['price'], 2, ',', '.') ?>€</td>
+                                <td>
+                                    <form action="edit_car.php" method="get" style="display:inline;">
+                                        <input type="hidden" name="id" value="<?= htmlspecialchars($car['id']) ?>">
+                                        <button type="submit" class="edit-btn">Editar</button>
+                                    </form>
+                                    <form action="delete_car.php" method="get" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja remover este carro?')">
+                                        <input type="hidden" name="id" value="<?= htmlspecialchars($car['id']) ?>">
+                                        <button type="submit" class="delete-btn">Remover</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
         </section>
     </div>
 
-    <script src="../admin/assets/js/sidebar.js"></script>
+    <script src="/PAP-Goncalo/admin/assets/js/sidebar.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let rows = document.querySelectorAll(".clickable-row");
@@ -95,7 +95,5 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
             });
         });
     </script>
-
 </body>
-
 </html>

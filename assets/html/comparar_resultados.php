@@ -1,23 +1,28 @@
 <?php
 include '../php/db.php'; // Conexão com a base de dados
 
-// Obter os IDs dos carros a comparar
-$car1_id = isset($_GET['car1']) ? intval($_GET['car1']) : 0;
-$car2_id = isset($_GET['car2']) ? intval($_GET['car2']) : 0;
+// Obter os IDs dos carros a comparar (agora suporta vários)
+$compare_ids = [];
+if (isset($_GET['compare']) && is_array($_GET['compare'])) {
+    foreach ($_GET['compare'] as $id) {
+        $id = intval($id);
+        if ($id > 0) $compare_ids[] = $id;
+    }
+}
+if (empty($compare_ids)) {
+    echo '<h2 style="color:red;text-align:center;margin-top:50px;">Nenhum carro selecionado para comparar.</h2>';
+    exit;
+}
 
-// Obter a conexão PDO
 $pdo = getPDO();
-
-// Buscar informações dos carros e a imagem associada
+// Montar placeholders para o IN
+$placeholders = implode(',', array_fill(0, count($compare_ids), '?'));
 $sql = "SELECT c.*, ci.image_url 
         FROM cars c 
         LEFT JOIN car_images ci ON c.id = ci.car_id
-        WHERE c.id IN (:car1_id, :car2_id)";
-
+        WHERE c.id IN ($placeholders)";
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(':car1_id', $car1_id, PDO::PARAM_INT);
-$stmt->bindParam(':car2_id', $car2_id, PDO::PARAM_INT);
-$stmt->execute();
+$stmt->execute($compare_ids);
 $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -37,8 +42,17 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($cars as $car): ?>
             <div class="car-card">
                 <?php 
-                    // Caminho da imagem
-                    $imageUrl = !empty($car['image_url']) ? '../assets/images/carros/' . htmlspecialchars($car['image_url']) : '../assets/images/carros/default-car.jpg';
+                    // Caminho da imagem igual comparar.php
+                    if (!empty($car['image_url'])) {
+                        $img = htmlspecialchars($car['image_url']);
+                        if ($img[0] === '/') {
+                            $imageUrl = $img;
+                        } else {
+                            $imageUrl = '/PAP-Goncalo/' . $img;
+                        }
+                    } else {
+                        $imageUrl = '/PAP-Goncalo/assets/images/carros/default-car.jpg';
+                    }
                 ?>
                 <img src="<?php echo $imageUrl; ?>" alt="Imagem do carro" class="car-image">
                 <h2><?php echo htmlspecialchars($car['brand'] . ' ' . $car['model']); ?></h2>

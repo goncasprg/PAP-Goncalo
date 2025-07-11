@@ -52,7 +52,7 @@ $allCars = $stmt->fetchAll();
         <div class="row">
             <div>
                 <label for="car1">Escolha o primeiro carro:</label>
-                <select name="car1" id="car1" required>
+                <select name="compare[]" id="car1" required>
                     <option value="" disabled selected>Selecione um carro</option>
                     <?php foreach ($allCars as $car): ?>
                         <?php
@@ -64,11 +64,11 @@ $allCars = $stmt->fetchAll();
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <img id="car1-image" src="" alt="Imagem do carro" style=" margin-top: 10px;">
+                <img id="car1-image" src="" alt="Imagem do carro" style="margin-top: 10px;">
             </div>
             <div>
                 <label for="car2">Escolha o segundo carro:</label>
-                <select name="car2" id="car2" required>
+                <select name="compare[]" id="car2" required>
                     <option value="" disabled selected>Selecione um carro</option>
                     <?php foreach ($allCars as $car): ?>
                         <?php
@@ -92,11 +92,25 @@ $allCars = $stmt->fetchAll();
         document.getElementById('car1').addEventListener('change', function () {
             let selectedOption = this.options[this.selectedIndex];
             document.getElementById('car1-image').src = selectedOption.getAttribute('data-image');
+
+            // Desabilitar a opção selecionada no car1 no select car2
+            let car1Value = this.value;
+            let car2Select = document.getElementById('car2');
+            for (let option of car2Select.options) {
+                option.disabled = (option.value === car1Value && option.value !== "");
+            }
         });
 
         document.getElementById('car2').addEventListener('change', function () {
             let selectedOption = this.options[this.selectedIndex];
             document.getElementById('car2-image').src = selectedOption.getAttribute('data-image');
+
+            // Desabilitar a opção selecionada no car2 no select car1
+            let car2Value = this.value;
+            let car1Select = document.getElementById('car1');
+            for (let option of car1Select.options) {
+                option.disabled = (option.value === car2Value && option.value !== "");
+            }
         });
     </script>
     <script src="../../assets/js/script.js"></script>

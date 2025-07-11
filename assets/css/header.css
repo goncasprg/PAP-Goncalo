@@ -9,16 +9,20 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 90px;
-    padding: 2px 30px;
+    padding: 2px 0px;
     border-bottom: 1px solid #ffffff31;
     transition: all 0.3s;
     z-index: 1000;
+}
+.fa-solid.fa-sign-out-alt {
+    
+    color: #fff;
 }
 
 .header-index {
@@ -38,7 +42,13 @@
     background: var(--header-color-sticky);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+gap: 10px;
+color: #fff;
+}
 
 /* Logo */
 .nav-logo {

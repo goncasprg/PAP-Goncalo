@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../assets/php/db.php';
-require_once 'check_admin.php';
+//require_once 'check_admin.php';
 
 // Verifica se o usuário é um administrador
 if (!isset($_SESSION["user_role"]) || $_SESSION["user_role"] !== "admin") {
@@ -9,14 +9,10 @@ if (!isset($_SESSION["user_role"]) || $_SESSION["user_role"] !== "admin") {
     exit();
 }
 
-// Buscar os carros na base de dados com apenas uma imagem associada
+// Buscar os comentários (reviews) na base de dados
 $pdo = getPDO();
-$stmt = $pdo->query("
-    SELECT c.*, 
-           (SELECT image_url FROM car_images WHERE car_id = c.id LIMIT 1) AS image_url
-    FROM cars c
-");
-$cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $pdo->query("SELECT r.id, r.user_id, u.first_name, u.last_name, r.rating, r.comment, r.created_at FROM stand_reviews r LEFT JOIN users u ON r.user_id = u.id ORDER BY r.created_at DESC");
+$reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -33,46 +29,48 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="container">
         <header>
-            <h1>Gestão de Viaturas</h1>
+            <h1>Gestão de avaliações</h1>
         </header>
 
         <section class="dashboard">
-            <h2>Lista de Carros</h2>
-            <div style="display:flex;justify-content:center;margin-bottom:24px;">
-                <a href="add_car.php" class="edit-btn" style="background:#1976d2;color:#fff;padding:14px 48px;border:none;border-radius:10px;font-weight:700;font-size:1.08em;text-decoration:none;box-shadow:0 2px 12px #0002;transition:background 0.2s;min-width:320px;max-width:100%;white-space:nowrap;display:inline-block;text-align:center;">+ Adicionar Novo Carro</a>
-            </div>
-            <?php if (empty($cars)): ?>
-                <p>Nenhum carro encontrado.</p>
+            <h2>Lista de avaliações</h2>
+            <?php if (empty($reviews)): ?>
+                <p>Nenhuma avaliação encontrada.</p>
             <?php else: ?>
+                <style>
+                .comment-cell {
+                    max-width: 340px;
+                    white-space: pre-line;
+                    word-break: break-word;
+                    overflow-wrap: break-word;
+                }
+                @media (max-width: 700px) {
+                  .comment-cell { max-width: 160px; }
+                }
+                </style>
                 <table>
                     <thead>
                         <tr>
-                            <th>Imagem</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Ano</th>
-                            <th>Preço</th>
+                            <th>ID</th>
+                            <th>Utilizador</th>
+                            <th>Avaliação</th>
+                            <th>Comentário</th>
+                            <th>Data</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($cars as $car): ?>
-                            <tr class="clickable-row" data-href="car_details.php?id=<?= htmlspecialchars($car['id']) ?>">
+                        <?php foreach ($reviews as $review): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($review['id']) ?></td>
+                                <td><?= htmlspecialchars(($review['first_name'] ?? '') . ' ' . ($review['last_name'] ?? '')) ?></td>
+                                <td><?= htmlspecialchars($review['rating']) ?></td>
+                                <td class="comment-cell"><?= nl2br(htmlspecialchars($review['comment'])) ?></td>
+                                <td><?= htmlspecialchars($review['created_at']) ?></td>
                                 <td>
-                                    <img src="<?php echo !empty($car['image_url']) ? '/PAP-Goncalo/' . htmlspecialchars($car['image_url']) : '/PAP-Goncalo/assets/images/carros/default-car.jpg'; ?>" alt="Imagem do Carro" width="100">
-                                </td>
-                                <td><?= htmlspecialchars($car['brand']) ?></td>
-                                <td><?= htmlspecialchars($car['model']) ?></td>
-                                <td><?= htmlspecialchars($car['registration_year']) ?></td>
-                                <td><?= number_format($car['price'], 2, ',', '.') ?>€</td>
-                                <td>
-                                    <form action="edit_car.php" method="get" style="display:inline;">
-                                        <input type="hidden" name="id" value="<?= htmlspecialchars($car['id']) ?>">
-                                        <button type="submit" class="edit-btn">Editar</button>
-                                    </form>
-                                    <form action="delete_car.php" method="get" style="display:inline;" class="delete-form">
-                                        <input type="hidden" name="id" value="<?= htmlspecialchars($car['id']) ?>">
-                                        <button type="button" class="delete-btn" onclick="showDeleteModal(this.form, 'Tem certeza que deseja remover este carro?')">Remover</button>
+                                    <form action="delete_comentario.php" method="post" style="display:inline;" class="delete-form">
+                                        <input type="hidden" name="id" value="<?= htmlspecialchars($review['id']) ?>">
+                                        <button type="button" class="delete-btn" onclick="showDeleteModal(this.form, 'Tem certeza que deseja remover esta avaliação?')">Remover</button>
                                     </form>
     <div id="modal-backdrop" style="display:none;"></div>
     <div id="delete-modal" style="display:none;">
@@ -123,18 +121,5 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <script src="/PAP-Goncalo/admin/assets/js/sidebar.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let rows = document.querySelectorAll(".clickable-row");
-
-            rows.forEach(row => {
-                row.addEventListener("click", function (event) {
-                    if (!event.target.closest("button")) {
-                        window.location.href = this.dataset.href;
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>

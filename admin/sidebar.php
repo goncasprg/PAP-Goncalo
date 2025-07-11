@@ -23,7 +23,7 @@
     <div class="sidebar-links">
       <ul>
         <li>
-          <a href="#dashboard" title="Dashboard" class="tooltip">
+          <a href="dashboard.php" title="Dashboard" class="tooltip">
             <img src="../admin/assets/images/car_icon.png" alt="Gestão de Viaturas">
             <span class="link hide">Gestão de Viaturas</span>
             <span class="tooltip__content">Gestão de Viaturas</span>
@@ -31,6 +31,18 @@
         </li>
 
         <li>
+          <a href="users.php" title="Utilizadores" class="tooltip">
+            <img src="../admin/assets/images/users_icon.png" alt="Utilizadores">
+            <span class="link hide">Utilizadores</span>
+            <span class="tooltip__content">Gestão de Utilizadores</span>
+          </a>
+        </li>
+        <li>
+          <a href="comentarios.php" title="Comentários" class="tooltip">
+            <img src="../admin/assets/images/comment_icon.png" alt="Comentários">
+            <span class="link hide">Avaliações</span>
+            <span class="tooltip__content">Gestão de Avaliações</span>
+          </a>
         </li>
       </ul>
     </div>

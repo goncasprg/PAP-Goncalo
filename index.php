@@ -77,7 +77,7 @@ if (isset($notification)) {
             <div class="banner-form-container">
                 <form action="/PAP-Goncalo/assets/html/veiculos.php" method="GET">
                     <select name="brand" id="brand">
-                    <option value="">Selecione uma marca</option>
+                    <option value="">Marca</option>
                     <?php
                     $sql = "SELECT * FROM brands ORDER BY brand ASC";
                     $stmt = getPDO()->prepare($sql);
@@ -89,7 +89,7 @@ if (isset($notification)) {
                 </select>
 
                 <select name="model" id="model">
-                    <option value="">Selecione um modelo</option>
+                    <option value="">Modelo</option>
                 </select>
 
                 <select name="transmission">

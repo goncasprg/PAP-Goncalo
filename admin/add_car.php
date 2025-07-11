@@ -121,10 +121,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Carro</title>
-    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/edit_car.css">
 </head>
 <body>
     <h1>Adicionar Novo Carro</h1>
+    <?php if (!empty($errors)): ?>
+        <div style="color: red; font-weight: bold;">
+            <p>⚠️ Preencha todos os campos obrigatórios antes de continuar:</p>
+            <ul>
+                <?php foreach ($errors as $error): ?>
+                    <li><?= htmlspecialchars($error) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
     <form action="add_car.php" method="post" enctype="multipart/form-data">
         <input type="text" name="brand" placeholder="Marca" required>
         <input type="text" name="model" placeholder="Modelo" required>
@@ -133,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="number" name="seats" placeholder="Número de Lugares" required>
         <input type="number" name="doors" placeholder="Número de Portas" required>
         <select name="fuel_type" required>
-            <option value="" disabled selected>Selecione o tipo de combustível</option>
+            <option value="" disabled selected>Combustível</option>
             <option value="Gasolina">Gasolina</option>
             <option value="GPL">GPL</option>
             <option value="Diesel">Diesel</option>
@@ -148,13 +158,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="engine_capacity" placeholder="Capacidade do Motor (cc)" required>
         <input type="text" name="fuel_tank_capacity" placeholder="Capacidade do Tanque (L)" required>
         <select name="transmission" required>
-            <option value="" disabled selected>Selecione a Transmissão</option>
+            <option value="" disabled selected>Transmissão</option>
             <option value="Manual">Manual</option>
             <option value="Automática">Automática</option>
             <option value="CVT">CVT</option>
         </select>
         <select name="traction" required>
-            <option value="" disabled selected>Selecione o tipo de tração</option>
+            <option value="" disabled selected>Tração</option>
             <option value="FWD">Dianteira (FWD)</option>
             <option value="RWD">Traseira (RWD)</option>
             <option value="AWD">Integral (AWD)</option>
@@ -171,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Não">Não</option>
         </select>
         <select name="condition" required>
-            <option value="" disabled selected>Selecione a Condição</option>
+            <option value="" disabled selected>Condição</option>
             <option value="Novo">Novo</option>
             <option value="Usado">Usado</option>
             <option value="Semi-novo">Semi-novo</option>
@@ -179,7 +189,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="number" step="0.01" name="price" placeholder="Preço (€)" required>
         <textarea name="description" placeholder="Descrição do Carro" required></textarea>
         <input type="file" name="images[]" accept="image/*" multiple required>
-        <p class="note">Pode carregar até 60 imagens (JPEG, PNG ou GIF, máx. 5MB cada).</p>
         <button type="submit">Adicionar</button>
     </form>
 </body>
